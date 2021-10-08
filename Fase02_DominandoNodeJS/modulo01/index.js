@@ -56,7 +56,9 @@ server.get('/users/:index', checkUserInArray, (req, res) => {
  */
 server.post('/users', checkUserExists, (req, res) => {
     const { name } = req.body;
+
     usuarios.push(name);
+    
     res.json(usuarios)
 });
 
