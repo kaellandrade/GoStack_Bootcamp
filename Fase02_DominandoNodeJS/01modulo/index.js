@@ -51,11 +51,12 @@ server.get('/users/:index', checkUserInArray, (req, res) => {
     const { index } = req.params;
     return res.json(req.user);
 });
+
 /**
  * Adiciona um novo usuário à meu array.
  */
 server.post('/users', checkUserExists, (req, res) => {
-    const { name } = req.body;
+    const name  = req.body.name;
 
     usuarios.push(name);
     
