@@ -1,14 +1,25 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/User';
 import auth from '../../config/auth';
+import * as Yup from 'yup';
 
 class SessionControler {
     async store(req, res) {
+        const schema = Yup.object().shape({
+            email: Yup.string().required(),
+            password: Yup.string().required(),
+        });
+        if (!(await schema.isValid(req.body))) {
+            return res
+                .status(400)
+                .json({ error: 'email and password is requerid' });
+        }
+
         try {
             var { email, password } = req.body;
             var user = await User.findOne({ where: { email } });
         } catch (error) {
-            return res.status(400).json({ error: 'Parâmetros inválidos!' });
+            return res.status(400).json({ error: 'Invalid parameters!' });
         }
 
         //Usuário existe no banco?
