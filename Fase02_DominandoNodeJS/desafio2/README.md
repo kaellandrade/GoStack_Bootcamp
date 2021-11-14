@@ -46,15 +46,15 @@ Você deverá criar a aplicação do zero utilizando o [Express](https://express
 - [X]  ESLint + Prettier + EditorConfig;
 - [X]  Sequelize (Utilize PostgreSQL ou MySQL);
 
-### - [ ] Funcionalidades
+### Funcionalidades
 
 Abaixo estão descritas as funcionalidades que você deve adicionar em sua aplicação.
 
 #### 1. Autenticação
 
-Permita que um usuário se autentique em sua aplicação utilizando e-mail e uma senha.
+- [] Permita que um usuário se autentique em sua aplicação utilizando e-mail e uma senha.
 
-Crie um usuário administrador utilizando a funcionalidade de [seeds do sequelize](https://sequelize.org/master/manual/migrations.html#creating-first-seed), essa funcionalidade serve para criarmos registros na base de dados de forma automatizada.
+- [X] Crie um usuário administrador utilizando a funcionalidade de [seeds do sequelize](https://sequelize.org/master/manual/migrations.html#creating-first-seed), essa funcionalidade serve para criarmos registros na base de dados de forma automatizada.
 
 Para criar um seed utilize o comando:
 
@@ -96,18 +96,18 @@ yarn sequelize db:seed:all
 
 Agora você tem um usuário na sua base de dados, utilize esse usuário para todos logins daqui pra frente.
 
-- A autenticação deve ser feita utilizando JWT.
-- Realize a validação dos dados de entrada;
+- [] A autenticação deve ser feita utilizando JWT.
+- [] Realize a validação dos dados de entrada;
 
 #### 2. Cadastro de alunos
 
-Permita que alunos sejam mantidos (cadastrados/atualizados) na aplicação utilizando nome, email, idade, peso e altura.
+- [] Permita que alunos sejam mantidos (cadastrados/atualizados) na aplicação utilizando nome, email, idade, peso e altura.
 
-Utilize uma nova tabela no banco de dados chamada `students`.
+- [] Utilize uma nova tabela no banco de dados chamada `students`.
 
-O cadastro de alunos só pode ser feito por administradores autenticados na aplicação.
+- [] O cadastro de alunos só pode ser feito por administradores autenticados na aplicação.
 
-O aluno não pode se autenticar no sistema, ou seja, não possui senha.
+- [] O aluno não pode se autenticar no sistema, ou seja, não possui senha.
 
 ## 📅 Entrega
 
