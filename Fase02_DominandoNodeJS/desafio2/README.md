@@ -46,7 +46,7 @@ Você deverá criar a aplicação do zero utilizando o [Express](https://express
 - [X]  ESLint + Prettier + EditorConfig;
 - [X]  Sequelize (Utilize PostgreSQL ou MySQL);
 
-### []Funcionalidades
+### [] Funcionalidades
 
 Abaixo estão descritas as funcionalidades que você deve adicionar em sua aplicação.
 
