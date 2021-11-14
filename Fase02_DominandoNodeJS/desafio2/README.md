@@ -44,9 +44,9 @@ Você deverá criar a aplicação do zero utilizando o [Express](https://express
 
 - [X]  Sucrase + Nodemon;
 - [X]  ESLint + Prettier + EditorConfig;
-- [ ]  Sequelize (Utilize PostgreSQL ou MySQL);
+- [X]  Sequelize (Utilize PostgreSQL ou MySQL);
 
-### Funcionalidades
+### []Funcionalidades
 
 Abaixo estão descritas as funcionalidades que você deve adicionar em sua aplicação.
 
