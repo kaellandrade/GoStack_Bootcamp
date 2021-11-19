@@ -6,7 +6,7 @@ module.exports = {
   database: 'gympoint',
   port: '5433',
   define: {
-    timestamp: true,
+    timestamps: true,
     underscored: true,
     underscoredAll: true,
   },
