@@ -8,7 +8,7 @@ class UserController {
 
       return res.json({ id, name, email, admin });
     }
-    return res.status(400).send({ error: 'Email já existe na base de dados' });
+    return res.status(400).send({ error: 'Usuário já existe!' });
   }
 
   async update(req, res) {
