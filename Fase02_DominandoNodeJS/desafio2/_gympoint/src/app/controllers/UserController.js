@@ -10,6 +10,10 @@ class UserController {
     }
     return res.status(400).send({ error: 'Email já existe na base de dados' });
   }
+
+  async update(req, res) {
+    return res.json({ message: req.userId });
+  }
 }
 
 export default new UserController();
