@@ -12,11 +12,38 @@ const userAuthorization = async (req, res, next) => {
 
   try {
     const { id } = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-    req.userId = id; // Passando para meu próximo meddleure de update o ID
+    req.userId = id; // Passando para meu próximo meddleaware de update o ID
     next();
   } catch (error) {
     return res.status(401).send({ error: 'Token inválido!' });
   }
 };
 
-export default userAuthorization;
+/**
+ * Meddlewares para verificar se o usário que deseja cadastrar uma aluno
+ * é um administrador do sistema
+ */
+const userIsAdmin = async (req, res, next) => {
+  const [, token] = String(req.headers.authorization).split(' ');
+  // Caso o Token não seja enviado no Header
+  if (!token) {
+    return res.status(401).send({ error: 'Token é necessário!' });
+  }
+
+  try {
+    const { admin } = await promisify(jwt.verify)(
+      token,
+      process.env.JWT_SECRET,
+    );
+    if (!admin) {
+      return res
+        .status(401)
+        .send({ error: 'Não tem permissão para cadastrar aluno' });
+    }
+    next();
+  } catch (error) {
+    return res.status(401).send({ error: 'Token inválido!' });
+  }
+};
+
+export { userAuthorization, userIsAdmin };
