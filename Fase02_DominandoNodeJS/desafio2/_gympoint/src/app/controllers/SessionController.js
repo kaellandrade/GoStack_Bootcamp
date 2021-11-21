@@ -20,10 +20,10 @@ class SessionControler {
       return res.status(401).send({ error: 'Verifique seus dados!' });
     }
     // Deu tudo certo até aqui!
-    const { id, name } = UserExist;
+    const { id, name, admin } = UserExist;
     return res.json({
-      user: { id, name, email },
-      token: jwt.sign({ id }, process.env.JWT_SECRET, {
+      user: { id, name, email, admin },
+      token: jwt.sign({ id, admin }, process.env.JWT_SECRET, {
         expiresIn: auth.expire,
       }),
     });
