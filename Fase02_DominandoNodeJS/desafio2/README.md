@@ -105,9 +105,9 @@ Agora você tem um usuário na sua base de dados, utilize esse usuário para tod
 
 - [X] Utilize uma nova tabela no banco de dados chamada `students`.
 
-- [ ] O cadastro de alunos só pode ser feito por administradores autenticados na aplicação.
+- [X] O cadastro de alunos só pode ser feito por administradores autenticados na aplicação.
 
-- [ ] O aluno não pode se autenticar no sistema, ou seja, não possui senha.
+- [X] O aluno não pode se autenticar no sistema, ou seja, não possui senha.
 
 ## 📅 Entrega
 
