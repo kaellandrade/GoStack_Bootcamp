@@ -1,7 +1,8 @@
 import { Router } from 'express';
 import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
-import userAuthorization from './app/middlewares/auth';
+import StudentsController from './app/controllers/StudentsController';
+import { userAuthorization, userIsAdmin } from './app/middlewares/auth';
 // Criando uma instância de Routes e passar para o app como meddlewares.
 const routes = new Router();
 
@@ -10,5 +11,7 @@ routes.post('/session', SessionController.store);
 
 routes.use(userAuthorization);
 
+// Rotas apenas para usuários autenticados.
 routes.put('/users', UserController.update);
+routes.post('/students', userIsAdmin, StudentsController.store);
 export default routes;
