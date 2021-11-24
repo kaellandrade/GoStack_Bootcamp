@@ -1,7 +1,22 @@
+import * as Yup from 'yup';
 import Students from '../models/Students';
 
 class StudentsController {
   async store(req, res) {
+    const schema = Yup.object().shape({
+      name: Yup.string().required(),
+      email: Yup.string().email().required(),
+      data_nascimento: Yup.date().required(),
+      peso: Yup.number().required(),
+      altura: Yup.number().required(),
+    });
+    // Verificando os dados
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({
+        error: 'Dados inválidos. Verifique os dados e tente novamente.',
+      });
+    }
+
     try {
       const studentsExist = await Students.findOne({
         where: { email: req.body.email },
@@ -12,7 +27,7 @@ class StudentsController {
       }
       return res.json({ error: 'Aluno já está cadastrado com esse email!' });
     } catch (error) {
-      return res.status(400).send({
+      return res.status(400).json({
         message: error.message,
         obs: 'name, email, data_nascimento, peso e altura são obrigatórios para cadastrar um novo aluno',
       });
@@ -29,7 +44,7 @@ class StudentsController {
         // Verificando se usuário existe
         return res
           .status(401)
-          .send({ error: 'Impossível atulizar, pois estudante não existe!' });
+          .json({ error: 'Impossível atulizar, pois estudante não existe!' });
       }
       if (new_email && email !== new_email) {
         // Deseja alterar o email
@@ -48,7 +63,7 @@ class StudentsController {
         }
         return res
           .status(400)
-          .send({ error: `Já existe usuário com o email ${new_email}` });
+          .json({ error: `Já existe usuário com o email ${new_email}` });
       }
       // Não deseja alterar o email
       const { name, data_nascimento, peso, altura } = await students.update(
@@ -56,7 +71,7 @@ class StudentsController {
       );
       return res.json({ name, email, data_nascimento, peso, altura });
     } catch (error) {
-      return res.status(400).send({ error: error.message });
+      return res.status(400).json({ error: error.message });
     }
   }
 
@@ -73,9 +88,9 @@ class StudentsController {
           messagem: `Usuário ${student.name} removido com sucesso!`,
         });
       }
-      return res.status(400).send({ messagem: `${email} não existe! ` });
+      return res.status(400).json({ messagem: `${email} não existe! ` });
     } catch (error) {
-      return res.json(error);
+      return res.status(400).json({ error: error.message });
     }
   }
 }
