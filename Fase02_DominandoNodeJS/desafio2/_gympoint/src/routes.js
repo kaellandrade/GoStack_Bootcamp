@@ -13,5 +13,9 @@ routes.use(userAuthorization);
 
 // Rotas apenas para usuários autenticados.
 routes.put('/users', UserController.update);
-routes.post('/students', userIsAdmin, StudentsController.store);
+
+routes.use(userIsAdmin); // Rotas apenas para adiministradores do sistema
+routes.post('/students', StudentsController.store);
+routes.put('/students', StudentsController.update);
+routes.delete('/students', StudentsController.delete);
 export default routes;
