@@ -36,9 +36,10 @@ const userIsAdmin = async (req, res, next) => {
       process.env.JWT_SECRET,
     );
     if (!admin) {
-      return res
-        .status(401)
-        .send({ error: 'Não tem permissão para cadastrar aluno' });
+      return res.status(401).send({
+        error:
+          'Não tem permissão para cadastrar ou alterar aluno, você precisa ser admin',
+      });
     }
     next();
   } catch (error) {
