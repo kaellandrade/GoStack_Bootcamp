@@ -97,11 +97,11 @@ yarn sequelize db:seed:all
 Agora você tem um usuário na sua base de dados, utilize esse usuário para todos logins daqui pra frente.
 
 - [X] A autenticação deve ser feita utilizando JWT.
-- [ ] Realize a validação dos dados de entrada;
+- [X] Realize a validação dos dados de entrada;
 
 #### 2. Cadastro de alunos
 
-- [ ] Permita que alunos sejam mantidos (cadastrados/atualizados) na aplicação utilizando nome, email, idade, peso e altura.
+- [X] Permita que alunos sejam mantidos (cadastrados/atualizados) na aplicação utilizando nome, email, idade, peso e altura.
 
 - [X] Utilize uma nova tabela no banco de dados chamada `students`.
 
