@@ -35,6 +35,18 @@ class StudentsController {
   }
 
   async update(req, res) {
+    const schema = Yup.object().shape({
+      name: Yup.string().min(5),
+      data_nascimento: Yup.date(),
+      email: Yup.string().email().required(),
+      new_email: Yup.string().email(),
+      peso: Yup.number(),
+      altura: Yup.number(),
+    });
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ error: 'Dados inválidos!' });
+    }
+
     const { email, new_email } = req.body;
     try {
       const students = await Students.findOne({
@@ -80,6 +92,16 @@ class StudentsController {
    */
   async delete(req, res) {
     const { email } = req.body;
+    const schema = Yup.object().shape({
+      email: Yup.string().email().required(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({
+        error:
+          'Dados inválidos. Nota: é preciso informar um e-mail válido para deletar estudante',
+      });
+    }
     try {
       const student = await Students.findOne({ where: { email } });
       if (student) {
