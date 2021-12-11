@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import path from 'path';
 import Youch from 'youch';
@@ -7,7 +8,6 @@ import * as Sentry from '@sentry/node';
 import cors from 'cors';
 
 import sentryConfig from './config/sentry';
-
 
 import './database';
 
@@ -44,8 +44,12 @@ class App {
      */
     exceptionHandler() {
         this.server.use(async (err, req, res, next) => {
-            const erros = await new Youch(err, req).toJSON();
-            return res.status(500).json(erros);
+            if (process.env.NODE_ENV === 'development') {
+                const erros = await new Youch(err, req).toJSON();
+                return res.status(500).json(erros);
+            } else {
+                return res.status(500).json({ error: 'Internal server error' });
+            }
         });
     }
 }
