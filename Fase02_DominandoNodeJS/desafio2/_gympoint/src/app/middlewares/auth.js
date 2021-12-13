@@ -38,7 +38,7 @@ const userIsAdmin = async (req, res, next) => {
     if (!admin) {
       return res.status(401).send({
         error:
-          'Não tem permissão para cadastrar ou alterar aluno, você precisa ser admin',
+          'Não tem permissão para cadastrar ou alterar aluno e planos, você precisa ser admin',
       });
     }
     next();
