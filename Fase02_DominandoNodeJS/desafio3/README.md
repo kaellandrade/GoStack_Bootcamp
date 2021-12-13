@@ -56,7 +56,7 @@ Crie alguns planos como por exemplo:
 - `Gold`: Plano de 3 meses por R\$109/mês;
 - `Diamond`: Plano de 6 meses por R\$89/mês;
 
--[X] Crie rotas para listagem/cadastro/atualização/remoção de planos;
+- [X] Crie rotas para listagem/cadastro/atualização/remoção de planos;
 
 Obs.: Essa funcionalidade é para administradores autenticados na aplicação.
 
