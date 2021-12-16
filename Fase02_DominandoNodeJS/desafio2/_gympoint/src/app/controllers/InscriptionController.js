@@ -1,12 +1,14 @@
+import { addMonths, parseISO, format } from 'date-fns';
+import pt from 'date-fns/locale/pt';
 import Inscription from '../models/Inscription';
 import Plan from '../models/Plan';
 import Students from '../models/Students';
-import { addMonths, parseISO } from 'date-fns';
+import Mail from '../../lib/Mail';
 
 class InscriptionController {
   // TODO: Usar Yup para realizar a validação.
   async index(req, res) {
-    const inscriptionss = await Inscription.findAll({
+    const inscriptions = await Inscription.findAll({
       attributes: ['start_date', 'end_date', 'price'],
       include: [
         {
@@ -17,7 +19,7 @@ class InscriptionController {
         { model: Students, attributes: ['name', 'email', 'id'], as: 'student' },
       ],
     });
-    return res.json(inscriptionss);
+    return res.json(inscriptions);
   }
 
   async store(req, res) {
@@ -41,18 +43,46 @@ class InscriptionController {
      * Existe um estudante e um plano.
      */
     const [day, month, year] = start_date.split('/');
-    const dataFormt = parseISO(`${year}-${month}-${day}`);
-    const endDate = addMonths(dataFormt, plan.duration);
+    const dataFormat = parseISO(`${year}-${month}-${day}`);
+    const endDate = addMonths(dataFormat, plan.duration);
+
+    // Calculando valor total do plano
     const final_price = plan.price * plan.duration;
+
+    const dateFormatStart = format(dataFormat, "dd 'de' MMMM 'de' yyyy", {
+      locale: pt,
+    });
+    const dateFormaEnd = format(endDate, "dd 'de' MMMM 'de' yyyy", {
+      locale: pt,
+    });
     const { end_date, price } = await Inscription.create({
       student_id,
       plan_id,
       price: final_price,
-      start_date: dataFormt,
+      start_date: dataFormat,
       end_date: endDate,
     });
 
-    return res.json({ preco: end_date, price });
+    await Mail.sendMail({
+      to: `${student.name} <${student.email}>`,
+      subject: 'Inscrição realizada com sucesso 😉',
+      template: 'welcome',
+      context: {
+        student: student.name,
+        plan: plan.title.toUpperCase(),
+        inicio: dateFormatStart,
+        fim: dateFormaEnd,
+        value: final_price,
+      },
+    });
+
+    return res.json({
+      student: student.name,
+      plan: plan.title.toUpperCase(),
+      fim: dateFormaEnd,
+      inicio: dateFormatStart,
+      value: final_price,
+    });
   }
 }
 
