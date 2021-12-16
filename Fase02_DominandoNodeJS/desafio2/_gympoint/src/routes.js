@@ -26,6 +26,8 @@ routes.delete('/plans/:idPlan', PlanController.delete);
 // Routes Inscription
 routes.get('/inscription', InscriptionController.index);
 routes.post('/inscription', InscriptionController.store);
+routes.put('/inscription/:idInscription', InscriptionController.update);
+routes.delete('/inscription/:idInscription', InscriptionController.delete);
 
 // Routes Students
 routes.post('/students', StudentsController.store);

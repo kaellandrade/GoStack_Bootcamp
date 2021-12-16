@@ -1,4 +1,4 @@
-import { addMonths, parseISO, format } from 'date-fns';
+import { addMonths, parseISO, format, isAfter } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 import Inscription from '../models/Inscription';
 import Plan from '../models/Plan';
@@ -9,7 +9,7 @@ class InscriptionController {
   // TODO: Usar Yup para realizar a validação.
   async index(req, res) {
     const inscriptions = await Inscription.findAll({
-      attributes: ['start_date', 'end_date', 'price'],
+      attributes: ['start_date', 'end_date', 'price', 'id'],
       include: [
         {
           model: Plan,
@@ -46,6 +46,14 @@ class InscriptionController {
     const dataFormat = parseISO(`${year}-${month}-${day}`);
     const endDate = addMonths(dataFormat, plan.duration);
 
+    // Checando se a data não está no passado
+    const checkIsPast = isAfter(new Date(), endDate);
+    if (checkIsPast) {
+      return res
+        .status(400)
+        .json({ error: 'A data de início já passou, escolha outra.' });
+    }
+
     // Calculando valor total do plano
     const final_price = plan.price * plan.duration;
 
@@ -55,7 +63,7 @@ class InscriptionController {
     const dateFormaEnd = format(endDate, "dd 'de' MMMM 'de' yyyy", {
       locale: pt,
     });
-    const { end_date, price } = await Inscription.create({
+    await Inscription.create({
       student_id,
       plan_id,
       price: final_price,
@@ -79,10 +87,89 @@ class InscriptionController {
     return res.json({
       student: student.name,
       plan: plan.title.toUpperCase(),
-      fim: dateFormaEnd,
       inicio: dateFormatStart,
+      fim: dateFormaEnd,
       value: final_price,
     });
+  }
+
+  async update(req, res) {
+    const { idInscription } = req.params;
+    const { start_date, plan_id, student_id } = req.body;
+
+    // Checando existe uma inscrição ativa com o id passado nos params
+    const inscription = await Inscription.findByPk(idInscription);
+    if (!inscription) {
+      return res
+        .status(400)
+        .json({ error: `Não existe matricula de id ${idInscription}` });
+    }
+    // Checando se existe um plano cujo id_plan foi passado.
+    const plan = await Plan.findByPk(plan_id);
+    if (!plan) {
+      return res
+        .status(400)
+        .json({ error: `Não existe plano de id ${plan_id}` });
+    }
+    // Calculando valor total do plano
+    const final_price = plan.price * plan.duration;
+
+    // Verificando se existe um studante cujo id foi passado.
+    const student = await Students.findByPk(student_id);
+    if (!student) {
+      return res
+        .status(400)
+        .json({ error: `Não existe studante com id ${student_id}` });
+    }
+
+    // Verificando se a data foi passada
+    if (start_date) {
+      const [day, month, year] = start_date.split('/');
+      const dataFormat = parseISO(`${year}-${month}-${day}`);
+      const endDate = addMonths(dataFormat, plan.duration);
+
+      // Checando se a data não está no passado
+      const checkIsPast = isAfter(new Date(), endDate);
+      if (checkIsPast) {
+        return res
+          .status(400)
+          .json({ error: 'A data de início já passou, escolha outra.' });
+      }
+      const dateFormatStart = format(dataFormat, "dd 'de' MMMM 'de' yyyy", {
+        locale: pt,
+      });
+      const dateFormaEnd = format(endDate, "dd 'de' MMMM 'de' yyyy", {
+        locale: pt,
+      });
+
+      const inscriptionUpdate = await inscription.update({
+        student_id,
+        plan_id,
+        price: final_price,
+        start_date: dataFormat,
+        end_date: endDate,
+      });
+      res.json(inscriptionUpdate);
+    }
+    const inscriptionUpdate = await inscription.update({
+      student_id,
+      plan_id,
+      price: final_price,
+    });
+    return res.json(inscriptionUpdate);
+  }
+
+  async delete(req, res) {
+    const { idInscription } = req.params;
+    const inscription = await Inscription.findByPk(idInscription);
+    if (!inscription) {
+      return res
+        .status(400)
+        .json({ error: `Nâo existe inscrição com id ${idInscription}` });
+    }
+
+    inscription.destroy();
+    return res.status(200).send();
   }
 }
 
