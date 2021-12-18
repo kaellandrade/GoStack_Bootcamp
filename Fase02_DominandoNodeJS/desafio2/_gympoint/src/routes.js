@@ -4,12 +4,17 @@ import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
 import StudentsController from './app/controllers/StudentsController';
 import InscriptionController from './app/controllers/InscriptionController';
+import CheckinController from './app/controllers/CheckinController';
 import { userAuthorization, userIsAdmin } from './app/middlewares/auth';
 // Criando uma instância de Routes e passar para o app como meddlewares.
 const routes = new Router();
 
 routes.post('/users', UserController.store);
 routes.post('/session', SessionController.store);
+
+// Routes Checkin
+routes.post('/students/:idStudent/checkins', CheckinController.store);
+routes.get('/students/:idStudent/checkins', CheckinController.index);
 
 routes.use(userAuthorization);
 
