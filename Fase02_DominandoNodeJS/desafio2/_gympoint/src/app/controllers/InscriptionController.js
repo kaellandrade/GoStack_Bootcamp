@@ -111,7 +111,16 @@ class InscriptionController {
   }
 
   async update(req, res) {
-    // TODO: Validar entrada com YUP
+    const schema = Yup.object().shape({
+      start_date: Yup.date(),
+      plan_id: Yup.number(),
+      student_id: Yup.number(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(401).json({ error: 'Parâmetros inválidos.' });
+    }
+
     const { idInscription } = req.params;
     const { start_date, plan_id, student_id } = req.body;
 
