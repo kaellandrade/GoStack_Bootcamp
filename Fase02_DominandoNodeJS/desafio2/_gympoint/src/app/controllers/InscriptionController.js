@@ -1,13 +1,13 @@
 import { addMonths, parseISO, format, isAfter } from 'date-fns';
 import pt from 'date-fns/locale/pt';
+import * as Yup from 'yup';
 import Inscription from '../models/Inscription';
 import Plan from '../models/Plan';
 import Students from '../models/Students';
 import Mail from '../../lib/Mail';
 
 class InscriptionController {
-  // TODO: Usar Yup para realizar a validação.
-  async index(req, res) {
+  async index(_, res) {
     const inscriptions = await Inscription.findAll({
       attributes: ['start_date', 'end_date', 'price', 'id'],
       include: [
@@ -23,22 +23,25 @@ class InscriptionController {
   }
 
   async store(req, res) {
+    /**
+     * Verificando os dados de entrada.
+     */
+    const schema = Yup.object().shape({
+      start_date: Yup.date().required(),
+      plan_id: Yup.number().required(),
+      student_id: Yup.number().required(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res
+        .status(401)
+        .json({ error: 'start_date, plan_id, student_id são obrigatórios!' });
+    }
+
     const { start_date, plan_id, student_id } = req.body;
     const plan = await Plan.findByPk(plan_id);
     const student = await Students.findByPk(student_id);
-    /**
-     * Se o plano não existir retorna um erro.
-     */
-    if (!plan) {
-      return res
-        .status(400)
-        .json({ error: `Não existe um plano de id ${plan_id}` });
-    }
-    if (!student) {
-      return res
-        .status(400)
-        .json({ error: `Não existe estudente com id ${student_id}` });
-    }
+
     /**
      * Existe um estudante e um plano.
      */
@@ -52,6 +55,20 @@ class InscriptionController {
       return res
         .status(400)
         .json({ error: 'A data de início já passou, escolha outra.' });
+    }
+
+    /**
+     * Se o plano não existir retorna um erro.
+     */
+    if (!plan) {
+      return res
+        .status(400)
+        .json({ error: `Não existe um plano de id ${plan_id}` });
+    }
+    if (!student) {
+      return res
+        .status(400)
+        .json({ error: `Não existe estudente com id ${student_id}` });
     }
 
     // Calculando valor total do plano
@@ -94,6 +111,7 @@ class InscriptionController {
   }
 
   async update(req, res) {
+    // TODO: Validar entrada com YUP
     const { idInscription } = req.params;
     const { start_date, plan_id, student_id } = req.body;
 
@@ -135,12 +153,6 @@ class InscriptionController {
           .status(400)
           .json({ error: 'A data de início já passou, escolha outra.' });
       }
-      const dateFormatStart = format(dataFormat, "dd 'de' MMMM 'de' yyyy", {
-        locale: pt,
-      });
-      const dateFormaEnd = format(endDate, "dd 'de' MMMM 'de' yyyy", {
-        locale: pt,
-      });
 
       const inscriptionUpdate = await inscription.update({
         student_id,
