@@ -4,11 +4,11 @@ import Students from '../app/models/Students';
 import Plan from '../app/models/Plan';
 import Inscription from '../app/models/Inscription';
 import Checkins from '../app/models/Checkins';
+import Help from '../app/models/Help';
 
 import dataBaseConfig from '../config/database';
 
-const models = [User, Students, Plan, Inscription, Checkins];
-
+const models = [User, Students, Plan, Inscription, Checkins, Help];
 class Database {
   constructor() {
     // Realizando conexão como banco
