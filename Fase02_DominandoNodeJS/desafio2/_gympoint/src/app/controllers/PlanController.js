@@ -1,3 +1,4 @@
+import * as Yup from 'yup';
 import Plan from '../models/Plan';
 
 class PlanController {
@@ -9,6 +10,16 @@ class PlanController {
   }
 
   async store(req, res) {
+    const schema = Yup.object().shape({
+      title: Yup.string().min(3).required(),
+      duration: Yup.number().required(),
+      price: Yup.number().required(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ error: 'Parâmetros inválidos!' });
+    }
+
     const { title, duration, price } = req.body;
     const planExist = await Plan.findOne({
       where: { title: title.toLowerCase() },
@@ -27,6 +38,16 @@ class PlanController {
   }
 
   async update(req, res) {
+    const schema = Yup.object().shape({
+      title: Yup.string().min(3),
+      duration: Yup.number(),
+      price: Yup.number(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ error: 'Dados inválidos!' });
+    }
+
     const { idPlan } = req.params;
     const { title, duration, price } = req.body;
 
