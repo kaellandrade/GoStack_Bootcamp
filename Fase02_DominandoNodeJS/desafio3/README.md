@@ -126,9 +126,9 @@ A tabela `help_orders` deve conter os seguintes campos:
 - created_at;
 - updated_at;
 
-Crie uma rota para a academia listar todos pedidos de auxílio sem resposta;
+-[X] Crie uma rota para a academia listar todos pedidos de auxílio sem resposta;
 
-Crie uma rota para o aluno cadastrar pedidos de auxílio apenas informando seu ID de cadastro (ID do banco de dados);
+- [X] Crie uma rota para o aluno cadastrar pedidos de auxílio apenas informando seu ID de cadastro (ID do banco de dados);
 
 Exemplo de requisição: `POST https://gympoint.com/students/3/help-orders`
 
