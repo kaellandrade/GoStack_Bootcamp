@@ -126,21 +126,21 @@ A tabela `help_orders` deve conter os seguintes campos:
 - created_at;
 - updated_at;
 
--[X] Crie uma rota para a academia listar todos pedidos de auxílio sem resposta;
+- [X] Crie uma rota para a academia listar todos pedidos de auxílio sem resposta;
 
 - [X] Crie uma rota para o aluno cadastrar pedidos de auxílio apenas informando seu ID de cadastro (ID do banco de dados);
 
 Exemplo de requisição: `POST https://gympoint.com/students/3/help-orders`
 
-Crie uma rota para listar todos pedidos de auxílio de um usuário com base em seu ID de cadastro;
+- [X] Crie uma rota para listar todos pedidos de auxílio de um usuário com base em seu ID de cadastro;
 
 Exemplo de requisição: `GET https://gympoint.com/students/3/help-orders`
 
-Crie uma rota para a academia responder um pedido de auxílio:
+- [X] Crie uma rota para a academia responder um pedido de auxílio:
 
 Exemplo de requisição: `POST https://gympoint.com/help-orders/1/answer`
 
-Quando um pedido de auxílio for respondido, o aluno deve receber um e-mail da plataforma com a pergunta e resposta da academia;
+- [X] Quando um pedido de auxílio for respondido, o aluno deve receber um e-mail da plataforma com a pergunta e resposta da academia;
 
 ## 📅 Entrega
 
