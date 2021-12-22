@@ -1,0 +1,24 @@
+<style>
+  .question{ background-color: rgba(255, 0, 0, 0.137); padding: 10px;
+  border-radius: 20px; } .answer{ background-color: rgba(0, 255, 55, 0.137);
+  padding: 10px; border-radius: 20px; margin-top: 20px; } .date{ color: rgba(59,
+  59, 59, 0.623); } hr{ color: rgba(128, 128, 128, 0.11); } .title{ text-align:
+  center; }
+</style>
+
+<h3 class='title'>Olá,
+  {{student}}
+  &#128075;. Sua pergunta acaba de ser respondida!</h3>
+<div class='question'>
+  <h3>&#10067; Sua pergunta foi a seguinte: </h3>
+  <p>{{question}}</p>
+  <hr />
+  <small class='date'>Feita em {{dateQuestion}} 📅</small>
+</div>
+
+<div class='answer'>
+  <h3>&#9989; Respota:</h3>
+  <p>{{answer}}</p><br />
+  <hr />
+  <small class='date'>Respondido em {{dateAnswer}} 📅</small>
+</div>
