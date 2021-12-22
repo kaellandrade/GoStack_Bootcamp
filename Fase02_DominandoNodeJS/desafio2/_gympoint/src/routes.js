@@ -5,7 +5,8 @@ import SessionController from './app/controllers/SessionController';
 import StudentsController from './app/controllers/StudentsController';
 import InscriptionController from './app/controllers/InscriptionController';
 import CheckinController from './app/controllers/CheckinController';
-import HelpController from './app/controllers/HelpController';
+import HelpControllerStudent from './app/controllers/HelpControllerStudent';
+import HelpControllerStudentAdmin from './app/controllers/HelpControllerStudentAdmin';
 import { userAuthorization, userIsAdmin } from './app/middlewares/auth';
 // Criando uma instância de Routes e passar para o app como meddlewares.
 const routes = new Router();
@@ -18,8 +19,9 @@ routes.post('/students/:idStudent/checkins', CheckinController.store);
 routes.get('/students/:idStudent/checkins', CheckinController.index);
 
 // Rotas de Help
-routes.post('/students/:idStudent/help-orders', HelpController.store);
-routes.get('/students/help-orders', HelpController.index);
+routes.post('/students/:idStudent/help-orders', HelpControllerStudent.store);
+routes.get('/students/help-orders', HelpControllerStudent.index);
+routes.get('/students/:idStudent/help-orders', HelpControllerStudent.show);
 
 routes.use(userAuthorization);
 
@@ -32,6 +34,12 @@ routes.get('/plans', PlanController.index);
 routes.post('/plans', PlanController.store);
 routes.put('/plans/:idPlan', PlanController.update);
 routes.delete('/plans/:idPlan', PlanController.delete);
+
+// Routes help answer
+routes.put(
+  '/help-orders/:idQuestion/answer',
+  HelpControllerStudentAdmin.update,
+);
 
 // Routes Inscription
 routes.get('/inscription', InscriptionController.index);
