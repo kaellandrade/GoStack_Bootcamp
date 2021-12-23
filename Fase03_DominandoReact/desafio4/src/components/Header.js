@@ -1,7 +1,8 @@
 import React from "react";
+import propTypes from "prop-types";
 import Logo from "../assets/logo.png";
 import LogoPerfil from "../assets/perfil.svg";
-const Header = (props) => {
+const Header = ({ name }) => {
   return (
     <header>
       <div className="header">
@@ -12,7 +13,7 @@ const Header = (props) => {
         </div>
         <div className="perfil-link">
           <a href="#">
-            Meu perfil
+            {name}
             <img src={LogoPerfil} />
           </a>
         </div>
@@ -20,5 +21,10 @@ const Header = (props) => {
     </header>
   );
 };
-
+Header.defaultProps = {
+  name: "Meu perfil",
+};
+Header.propTypes = {
+  name: propTypes.string,
+};
 export default Header;
