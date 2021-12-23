@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "./components/Header";
 export default (_) => {
-  return <h1>Opa!</h1>;
+  return <Header />;
 };

@@ -1,3 +1,26 @@
 body {
-  background-color: red;
+  font-family: Helvetica, Arial, sans-serif;
+  padding: 0px;
+  margin: 0px;
+}
+/* Style Header */
+.header {
+  padding: 10px 0px 10px;
+  background-color: #4a90e2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header img {
+  width: 15%;
+  padding: 2px;
+}
+.perfil-link a {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-weight: bold;
+  text-decoration: none;
+  color: aliceblue;
 }
