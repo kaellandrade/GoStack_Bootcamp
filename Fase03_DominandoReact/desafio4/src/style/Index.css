@@ -1,15 +1,16 @@
 body {
+  background-color: #f2f2f2;
   font-family: Helvetica, Arial, sans-serif;
-  padding: 0px;
   margin: 0px;
+  padding: 0px;
 }
 /* Style Header */
 .header {
-  padding: 10px 0px 10px;
+  align-items: center;
   background-color: #4a90e2;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  padding: 0px 0px 10px;
 }
 
 .header img {
@@ -18,10 +19,67 @@ body {
 }
 .perfil-link a {
   align-items: center;
-  justify-content: center;
+  color: aliceblue;
   display: flex;
   font-weight: bold;
+  justify-content: center;
   text-decoration: none;
-  color: aliceblue;
 }
 /* Fim Style Header */
+
+/* Style Post-Component */
+.content-post {
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.281);
+  background-color: rgba(255, 255, 255, 0.884);
+  border-radius: 10px;
+  margin: 10px 100px 10px;
+  padding: 10px;
+  
+}
+.content-post > p{
+  margin-left: 13px;
+}
+.avatar {
+  box-shadow: -1px 2px 4px rgba(24, 21, 21, 0.452);
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+}
+.profile-details {
+  align-items: center;
+  display: flex;
+
+}
+.profile-details > div {
+  flex-grow: 0.95;
+  margin-left: 5px;
+}
+.profile-details > div small {
+  color: rgba(88, 88, 88, 0.623);
+}
+.profile-details > div strong {
+  font-size: 0.9em;
+}
+.profile-details > div small,
+.profile-details > div strong {
+  display: block;
+}
+.box-comment-container {
+  padding: 5px 0px 5px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.box-comment-container > .avatar{
+  display: inline-block;
+}
+.content {
+  margin-left: 10px;
+  flex-grow: 1;
+  border-radius: 10px;
+  background-color: rgba(128, 128, 128, 0.151);
+}
+.content > p{
+  margin: 10px;
+}
+
+/* Fim Style Post-Component */
