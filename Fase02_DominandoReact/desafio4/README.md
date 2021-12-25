@@ -106,7 +106,10 @@ data.comments.map(comment => <Comment key={comment.id} data={comment} />);
 ## Comentário
 <p>
 Aqui aprendi a configurar o Webpack, Babel, Webpack Dev Server e ReactJS. Além disso, aprendi
-a estruturar minha aplicação por componentes baseados em e Classes e Funções. 
+a estruturar minha aplicação por componentes baseados em Classes e Funções. 
+</p>
+<p>
+Compreendi o ciclo de vida dos compoentes React e como manipular estados.
 </p>
 
 ## 📅 Entrega
