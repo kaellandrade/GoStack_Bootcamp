@@ -4,7 +4,7 @@ import PostList from "./components/PostList";
 export default (_) => {
   return (
     <Fragment>
-      <Header />
+      <Header name="Kaell Andrade"/>
       <PostList />
     </Fragment>
   );
