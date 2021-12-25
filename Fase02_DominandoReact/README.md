@@ -1,5 +1,5 @@
-<img alt="GoStack" src="https://blog.hariken.co/wp-content/uploads/2019/03/react-logo.png" />
-<h2 align="center" width="100px">
+<img alt="GoStack" src="https://blog.hariken.co/wp-content/uploads/2019/03/react-logo.png" width="100px" />
+<h2 align="center" >
   Fase 02 Dominando o React
 </h2>
 
@@ -9,11 +9,9 @@
 
 ### Projeto
 
-
 ### Desafios
 
 - [ :bookmark_tabs: Desafio 4 Introdução ao React](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase02_DominandoReact/desafio4)
-
 
 ## :memo: Referências
 
