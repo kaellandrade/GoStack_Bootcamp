@@ -5,11 +5,14 @@
 
 ## Índice
 
-- [Fase 01 Dominando o Node.js](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase01_DominandoNodeJS)
+- [:book: Ambiente e Conceitos](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase01_DominandoNodeJS/01modulo)
 
-- [Fase 02 Dominando o React](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase02_DominandoReact)
+### Projetos
 
+- [ :barber: Projeto GoBarber](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase01_DominandoNodeJS/02gobarber)
 
+### Desafios
 
 ## :memo: Referências
+
 - [RockeatSeat](https://www.rocketseat.com.br/)
