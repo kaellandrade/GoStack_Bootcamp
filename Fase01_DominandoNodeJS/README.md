@@ -1,5 +1,5 @@
-<img alt="GoStack" src="https://www.pinclipart.com/picdir/big/102-1024726_related-wallpapers-node-js-logo-png-clipart.png" height="100px" />
 <h2 align="center" >
+<img alt="GoStack" src="https://www.pinclipart.com/picdir/big/102-1024726_related-wallpapers-node-js-logo-png-clipart.png" height="100px" /> <br/>
   Fase 01 Dominando o Node.js
 </h2>
 
