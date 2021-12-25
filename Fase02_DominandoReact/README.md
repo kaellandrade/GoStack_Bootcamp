@@ -1,5 +1,5 @@
 <h2 align="center" >
-  <img alt="GoStack" src="https://blog.hariken.co/wp-content/uploads/2019/03/react-logo.png" width="100px" /> <br/>
+  <img alt="GoStack" src="https://blog.hariken.co/wp-content/uploads/2019/03/react-logo.png" width="200px" /> <br/>
   Fase 02 Dominando o React
 </h2>
 
