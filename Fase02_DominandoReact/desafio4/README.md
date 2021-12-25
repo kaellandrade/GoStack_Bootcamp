@@ -103,6 +103,11 @@ data.comments.map(comment => <Comment key={comment.id} data={comment} />);
 ## ✅ Resultado do meu Desafio
 ![Meu Desafio](prints/scren1.png)
 
+## Comentário
+<p>
+Aqui aprendi a configurar o Webpack, Babel, Webpack Dev Server e ReactJS. Além disso, aprendi
+a estruturar minha aplicação por componentes baseados em e Classes e Funções. 
+</p>
 
 ## 📅 Entrega
 
