@@ -68,13 +68,13 @@ Se eu chamar a rota `POST /projects` repassando `{ id: 1, title: 'Novo projeto' 
 
 ### Comentário
 <p>
-Com esse desafio eu aprendi a utilizar as principais funcionalidades do Express.
+Com esse desafio eu aprendi a utilizar as principais funcionalidades do **Express**.
 Conseguir compreender como funciona as rotas `POST`, `GET`, `PUT`, `DELETE`.
 Também aprendi a capturar os dados passados via JSON tanto nos parâmetros da requisição quanto
 no corpo (body).
 </p>
 <p>
-Outro conceito muito importante que aprendi foi a utilização de *Middlewares* os quais são bastantes usados para proteger rotas e muito mais. Os middlewares são chamados em cadeias.
+Outro conceito muito importante que aprendi foi a utilização de **Middlewares** os quais são bastantes usados para proteger rotas e muito mais. Os middlewares são chamados em cadeias.
 </p>
 
 ## 📅 Entrega
