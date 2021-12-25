@@ -16,7 +16,7 @@
 
 - [ :weight_lifting_woman: Desafio 2 Gympoint, o início](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase01_DominandoNodeJS/desafio2)
 
-- [ :weight_lifting_woman: Desafio 3 Gympoint, continuando a aplicação](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase01_DominandoNodeJS/desafio2)
+- [ :weight_lifting_woman: Desafio 3 Gympoint, continuando a aplicação](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase01_DominandoNodeJS/desafio3)
 
 ## :memo: Referências
 
