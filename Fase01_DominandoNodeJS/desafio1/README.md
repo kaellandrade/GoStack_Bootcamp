@@ -38,11 +38,11 @@ Crie uma aplicação para armazenar projetos e suas tarefas do zero utilizando [
 
 - [x] `GET /projects`: Rota que lista todos projetos e suas tarefas;
 
-- [X] `PUT /projects/:id`: A rota deve alterar apenas o título do projeto com o `id` presente nos parâmetros da rota;
+- [x] `PUT /projects/:id`: A rota deve alterar apenas o título do projeto com o `id` presente nos parâmetros da rota;
 
-- [X] `DELETE /projects/:id`: A rota deve deletar o projeto com o `id` presente nos parâmetros da rota;
+- [x] `DELETE /projects/:id`: A rota deve deletar o projeto com o `id` presente nos parâmetros da rota;
 
-- [X] `POST /projects/:id/tasks`: A rota deve receber um campo `title` e armazenar uma nova tarefa no array de tarefas de um projeto específico escolhido através do `id` presente nos parâmetros da rota;
+- [x] `POST /projects/:id/tasks`: A rota deve receber um campo `title` e armazenar uma nova tarefa no array de tarefas de um projeto específico escolhido através do `id` presente nos parâmetros da rota;
 
 ### Exemplo
 
@@ -53,28 +53,29 @@ Se eu chamar a rota `POST /projects` repassando `{ id: 1, title: 'Novo projeto' 
   {
     id: "1",
     title: "Novo projeto",
-    tasks: ["Nova tarefa"]
-  }
+    tasks: ["Nova tarefa"],
+  },
 ];
 ```
 
 ### Middlewares
 
-- [X] Crie um middleware que será utilizado em todas rotas que recebem o ID do projeto nos parâmetros da URL que verifica se o projeto com aquele ID existe. Se não existir retorne um erro, caso contrário permita a requisição continuar normalmente;
+- [x] Crie um middleware que será utilizado em todas rotas que recebem o ID do projeto nos parâmetros da URL que verifica se o projeto com aquele ID existe. Se não existir retorne um erro, caso contrário permita a requisição continuar normalmente;
 
-- [X] Crie um middleware global chamado em todas requisições que imprime (`console.log`) uma contagem de quantas requisições foram feitas na aplicação até então;
+- [x] Crie um middleware global chamado em todas requisições que imprime (`console.log`) uma contagem de quantas requisições foram feitas na aplicação até então;
 
 ## ✅ Resultado do meu Desafio
 
 ### Comentário
+
 <p>
-Com esse desafio eu aprendi a utilizar as principais funcionalidades do **Express**.
+Com esse desafio eu aprendi a utilizar as principais funcionalidades do <strong>Express</strong>.
 Conseguir compreender como funciona as rotas `POST`, `GET`, `PUT`, `DELETE`.
 Também aprendi a capturar os dados passados via JSON tanto nos parâmetros da requisição quanto
 no corpo (body).
 </p>
 <p>
-Outro conceito muito importante que aprendi foi a utilização de **Middlewares** os quais são bastantes usados para proteger rotas e muito mais. Os middlewares são chamados em cadeias.
+Outro conceito muito importante que aprendi foi a utilização de <strong>Middlewares</strong> os quais são bastantes usados para proteger rotas e muito mais. Os middlewares são chamados em cadeias.
 </p>
 
 ## 📅 Entrega
