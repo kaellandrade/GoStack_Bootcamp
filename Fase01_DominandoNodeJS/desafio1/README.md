@@ -64,6 +64,19 @@ Se eu chamar a rota `POST /projects` repassando `{ id: 1, title: 'Novo projeto' 
 
 - [X] Crie um middleware global chamado em todas requisições que imprime (`console.log`) uma contagem de quantas requisições foram feitas na aplicação até então;
 
+## ✅ Resultado do meu Desafio
+
+### Comentário
+<p>
+Com esse desafio eu aprendi a utilizar as principais funcionalidades do Express.
+Conseguir compreender como funciona as rotas `POST`, `GET`, `PUT`, `DELETE`.
+Também aprendi a capturar os dados passados via JSON tanto nos parâmetros da requisição quanto
+no corpo (body).
+</p>
+<p>
+Outro conceito muito importante que aprendi foi a utilização de *Middlewares* os quais são bastantes usados para proteger rotas e muito mais. Os middlewares são chamados em cadeias.
+</p>
+
 ## 📅 Entrega
 
 Esse desafio **não precisa ser entregue** e não receberá correção, mas você pode ver o resultado do [código do desafio aqui](https://github.com/Rocketseat/bootcamp-gostack-desafio-01/blob/master/index.js). Após concluir o desafio, adicionar esse código ao seu Github é uma boa forma de demonstrar seus conhecimentos para oportunidades futuras.
