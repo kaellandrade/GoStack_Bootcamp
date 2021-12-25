@@ -5,9 +5,9 @@
 
 ## Índice
 
-- [Fase 01 Dominando o Node.js](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase02_DominandoNodeJS)
+- [Fase 01 Dominando o Node.js](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase01_DominandoNodeJS)
 
-- [Fase 02 Dominando o React](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase02_DominandoNodeJS)
+- [Fase 02 Dominando o React](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase02_DominandoReact)
 
 
 
