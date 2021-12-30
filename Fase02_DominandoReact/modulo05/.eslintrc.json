@@ -5,16 +5,21 @@
     },
     "extends": ["airbnb-base", "prettier", "plugin:react/recommended"],
     "parserOptions": {
-        "ecmaVersion": 2021
+        "ecmaVersion": 12,
+        "requireConfigFile": false,
+        "parser": "@babel/eslint-parser"
     },
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
     "rules": {
-        "no-unused-vars": "warn",
-        "no-useless-constructor": "off"
+        "no-unused-vars": [
+            1,
+            { "args": "after-used", "argsIgnorePattern": "_" }
+        ],
+        "no-useless-constructor": "off",
+        "import/prefer-default-export": "off"
     },
-    "parser": "babel-eslint",
     "plugins": ["prettier", "react"]
 }
