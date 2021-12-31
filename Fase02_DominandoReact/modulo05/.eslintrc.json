@@ -19,7 +19,8 @@
             { "args": "after-used", "argsIgnorePattern": "_" }
         ],
         "no-useless-constructor": "off",
-        "import/prefer-default-export": "off"
+        "import/prefer-default-export": "off",
+        "react/prop-types": "off"
     },
     "plugins": ["prettier", "react"]
 }

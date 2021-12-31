@@ -7,8 +7,11 @@ export default function MyRoutes() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Main />}/>
-                <Route path="/repository" element={<Repository />}/>
+                <Route path="/" element={<Main />} />
+                <Route
+                    path="/repository/:repository"
+                    element={<Repository />}
+                />
             </Routes>
         </Router>
     );

@@ -4,7 +4,7 @@ const Container = styled.div`
     max-width: 700px;
     background-color: #22272e;
     border-radius: 6px;
-    box-shadow: 0 0 20px rgb(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgb(209, 209, 209, 0.1);
     padding: 30px;
     margin: 80px auto;
     border: 1px solid #404852;
@@ -74,4 +74,24 @@ const SubmitButton = styled.button.attrs((props) => ({
             }
         `}
 `;
-export { Container, Form, SubmitButton };
+const List = styled.ul`
+    list-style: none;
+    margin-top: 30px;
+    li {
+        padding: 15px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        color: #adbac7;
+        & + li {
+            border-top: 1px solid #444c56;
+        }
+        a {
+            color: #539bf5;
+            text-decoration: none;
+        }
+    }
+`;
+
+export { Container, Form, SubmitButton, List };
