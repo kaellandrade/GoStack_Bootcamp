@@ -3,7 +3,8 @@ import { BsGithub, BsPlusLg } from 'react-icons/bs';
 import { FaSpinner } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import API from '../../services/api';
-import { Container, Form, SubmitButton, List } from './styles';
+import { Form, SubmitButton, List } from './styles';
+import Container from '../../Components/Container/index';
 
 const Main = () => {
     const [newRepo, setNewRepo] = useState('');
