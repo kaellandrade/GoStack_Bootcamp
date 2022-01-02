@@ -14,7 +14,7 @@
 
 ## :rocket: Sobre o projeto
 
-Criar um página com React capaz de consumir alguns recursos da <a href='https://docs.github.com/pt/rest'>API do github</a> a página poderá inserir repositórios, ver detalhes de um dado repositório inserido e também as issues abertas.
+Criar um página com React capaz de consumir alguns recursos da <a href='https://docs.github.com/pt/rest'>API do github</a>. A página poderá inserir repositórios, ver detalhes de um dado repositório inserido e também as issues abertas.
 
 ## :heavy_check_mark: Resultado do projeto
 
