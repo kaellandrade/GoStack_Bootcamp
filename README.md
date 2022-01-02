@@ -4,7 +4,7 @@
 </h2>
 
 ## Descrição
-Aqui está todo meu progresso no Bootcamp promovido pela RockeatSeat. Além dos projetos feito durante o curso aqui também está todos os desafios.
+Aqui está todo meu progresso no Bootcamp promovido pela RockeatSeat. Além dos projetos durante o curso aqui também está todos os desafios.
 
 ## Índice
 
