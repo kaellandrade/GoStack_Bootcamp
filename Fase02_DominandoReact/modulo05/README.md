@@ -10,7 +10,7 @@
   <a href="#pencil2-comentário">Sobre o desafio</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-entrega">Entrega</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
-</p
+</p>
 
 ## :rocket: Sobre o projeto
 
