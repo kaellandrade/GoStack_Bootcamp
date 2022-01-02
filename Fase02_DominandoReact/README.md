@@ -8,6 +8,7 @@
 - [:book: Ambiente e Conceitos](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase02_DominandoReact/modulo04)
 
 ### Projeto
+- [:book: Usando API do GitHub](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase02_DominandoReact/modulo05)
 
 ### Desafios
 
