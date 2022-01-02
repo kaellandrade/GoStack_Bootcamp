@@ -10,6 +10,7 @@ const Main = () => {
     const [newRepo, setNewRepo] = useState('');
     const [repositories, setRepositories] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [haveError, setError] = useState(false);
 
     /**
      * Semelhante ao componentDidMount
@@ -25,18 +26,29 @@ const Main = () => {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        const response = await API.get(`repos/kaellandrade/${newRepo}`);
-        const data = {
-            name: response.data.full_name,
-            description: response.data.description,
-            created_at: response.data.created_at,
-        };
+        try {
+            e.preventDefault();
+            setLoading(true);
+            const response = await API.get(`repos/kaellandrade/${newRepo}`);
+            const data = {
+                name: response.data.full_name,
+                description: response.data.description,
+                created_at: response.data.created_at,
+                id: response.data.id,
+            };
+            // Verificando se o repo já não foi adicionado.
+            const isDuplicated = repositories.some(({id})=>data.id === id)
+            if(isDuplicated){
+                throw new Error('Repositório duplicado');
+            }
 
-        setNewRepo('');
-        setLoading(false);
-        saveLocalStorage(data);
+            setNewRepo('');
+            setLoading(false);
+            saveLocalStorage(data);
+        } catch (error) {
+            setLoading(false);
+            setError(true);
+        }
     };
 
     return (
@@ -44,12 +56,15 @@ const Main = () => {
             <h1>
                 <BsGithub /> Repositórios
             </h1>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} error={haveError}>
                 <input
                     value={newRepo}
                     type="text"
                     placeholder="Adicionar Repositório"
-                    onChange={(e) => setNewRepo(e.target.value)}
+                    onChange={(e) => {
+                        setNewRepo(e.target.value);
+                        setError(false);
+                    }}
                 />
                 <SubmitButton loading={loading ? 1 : undefined}>
                     {loading ? (

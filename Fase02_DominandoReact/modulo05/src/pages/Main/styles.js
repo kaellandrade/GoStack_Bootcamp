@@ -4,10 +4,10 @@ const Form = styled.form`
     margin-top: 30px;
     display: flex;
     flex-direction: row;
-
     input {
+        border: 1px solid;
+        border-color: ${(props) => (props.error ? '#e5534b66' : '#404852')};
         flex: 1;
-        border: 1px solid #404852;
         padding: 10px 15px;
         border-radius: 4px;
         font-size: 16px;

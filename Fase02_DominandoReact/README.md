@@ -14,6 +14,8 @@
 
 - [ :bookmark_tabs: Desafio 4 Introdução ao React](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase02_DominandoReact/desafio4)
 
+- [ :bookmark_tabs: Desafio 5 Primeiro projeto com ReactJS](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase02_DominandoReact/desafio4)
+
 ## :memo: Referências
 
 - [RockeatSeat](https://www.rocketseat.com.br/)
