@@ -5,7 +5,7 @@ import Repository from './pages/Repository';
 
 export default function MyRoutes() {
     return (
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
             <Routes>
                 <Route path="/" element={<Main />} />
                 <Route

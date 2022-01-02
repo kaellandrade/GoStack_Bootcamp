@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { FaSpinner, FaArrowLeft } from 'react-icons/fa';
+import pt from 'date-fns/locale/pt';
+import { format, parseISO } from 'date-fns';
+import { FaSpinner, FaArrowLeft, FaCalendar } from 'react-icons/fa';
 import { useParams, Link } from 'react-router-dom';
 import API from '../../services/api';
 
-import { Loading, Owner, ButtonBack } from './styles';
+import { Loading, Owner, ButtonBack, IssueList, Label } from './styles';
 
 import Container from '../../Components/Container/index';
 
@@ -48,8 +50,48 @@ function Repository() {
                 <div>
                     <h1>{StateRepsitory.name}</h1>
                     <p>{StateRepsitory.description}</p>
+                    <span>
+                        <FaCalendar />
+                        {format(
+                            parseISO(StateRepsitory.created_at),
+                            " dd MMMM 'de' YYY ",
+                            {
+                                locale: pt,
+                            }
+                        )}
+                    </span>
                 </div>
             </Owner>
+            <IssueList>
+                {StateIssues.map((issue) => (
+                    <li key={String(issue.id)}>
+                        <img
+                            src={issue.user.avatar_url}
+                            alt={issue.user.login}
+                        />
+                        <div>
+                            <strong>
+                                <a
+                                    rel="noreferrer"
+                                    target="_blank"
+                                    href={issue.html_url}
+                                >
+                                    {issue.title}
+                                </a>
+                                {issue.labels.map((label) => (
+                                    <Label
+                                        cor={label.color}
+                                        key={String(label.id)}
+                                    >
+                                        {label.name}
+                                    </Label>
+                                ))}
+                            </strong>
+                            <p>{issue.user.login}</p>
+                        </div>
+                    </li>
+                ))}
+            </IssueList>
         </Container>
     );
 }

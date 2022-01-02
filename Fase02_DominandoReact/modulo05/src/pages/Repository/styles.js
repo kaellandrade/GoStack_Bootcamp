@@ -40,19 +40,82 @@ const Owner = styled.div`
         color: #768390;
         max-width: 400px;
     }
+    span{
+        border-bottom: 1px solid #444c56;
+        border-top: 1px solid #444c56;
+        color: #adbac7;
+        display: inline-block;
+        margin-top: 5px;
+        padding-top: 5px;
+    }
 `;
 
 const ButtonBack = styled.div`
     left: 15px;
     top: 15px;
     position: absolute;
-    a{
+    a {
         transition: 1s;
         color: #cdd9e5;
     }
-    a:hover{
+    a:hover {
         color: #768390;
     }
 `;
 
-export { Owner, Loading, ButtonBack };
+const IssueList = styled.ul`
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid #444c56;
+    list-style: none;
+
+    li {
+        display: flex;
+        padding: 15px 10px;
+        border: 1px solid #444c56;
+        border-radius: 6px;
+    }
+    & + li {
+        margin-top: 10px;
+    }
+    img {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 2px solid #eee;
+    }
+    div {
+        flex: 1;
+        margin-left: 15px;
+        strong {
+            font-size: 16px;
+            a {
+                transition: 1s;
+                text-decoration: none;
+                color: #539bf5;
+                &:hover {
+                    color: #768390;
+                }
+            }
+        }
+        p {
+            color: #768390;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+    }
+`;
+
+const Label = styled.span`
+    color: black;
+    background-color: ${(props) => `#${props.cor}`};
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 60;
+    height: 20px;
+    line-height: 15px;
+    padding: 3px 4px;
+    margin-left: 10px;
+`;
+
+export { Owner, Loading, ButtonBack, IssueList, Label };
