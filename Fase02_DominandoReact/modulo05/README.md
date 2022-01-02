@@ -6,6 +6,12 @@
   Projeto: Usando API do GotHub
 </h3>
 
+<p align="center">
+  <a href="#pencil2-comentário">Sobre o desafio</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-entrega">Entrega</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>
+</p
+
 ## :rocket: Sobre o projeto
 
 Criar um página com React capaz de consumir alguns recursos da <a href='https://docs.github.com/pt/rest'>API do github</a> a página poderá inserir repositórios, ver detalhes de um dado repositório inserido e também as issues abertas.
