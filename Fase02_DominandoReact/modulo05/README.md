@@ -9,7 +9,7 @@
 <p align="center">
   <a href="#rocket-sobre-o-projeto">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#heavy_check_mark-resultado-do-projeto">Resultado</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#pencil2-comentário">Conmentário</a>
+  <a href="#pencil2-comentário">Comentário</a>
 </p>
 
 ## :rocket: Sobre o projeto
