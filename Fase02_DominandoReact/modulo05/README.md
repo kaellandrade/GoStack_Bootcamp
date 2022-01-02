@@ -3,7 +3,7 @@
 </h1>
 
 <h3 align="center">
-  Projeto: Usando API do GotHub
+  Projeto: Usando API do GitHub
 </h3>
 
 <p align="center">
