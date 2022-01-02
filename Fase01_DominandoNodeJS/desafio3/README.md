@@ -107,7 +107,7 @@ A tabela de `checkins` possui os campos:
 
 O usuário só pode fazer **5 checkins** dentro de um período de 7 dias corridos.
 
--[X] Exemplo de requisição: `POST https://gympoint.com/students/3/checkins`
+- [X] Exemplo de requisição: `POST https://gympoint.com/students/3/checkins`
 
 Crie uma rota para listagem de todos checkins realizados por um usuário com base em seu ID de cadastro;
 
