@@ -5,7 +5,15 @@ import { FaSpinner, FaArrowLeft, FaCalendar } from 'react-icons/fa';
 import { useParams, Link } from 'react-router-dom';
 import API from '../../services/api';
 
-import { Loading, Owner, ButtonBack, IssueList, Label } from './styles';
+import {
+    Loading,
+    Owner,
+    ButtonBack,
+    IssueList,
+    Label,
+    Select,
+    State,
+} from './styles';
 
 import Container from '../../Components/Container/index';
 
@@ -13,6 +21,7 @@ function Repository() {
     const [StateRepsitory, setRepository] = useState({});
     const [StateIssues, setIssues] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [filter, setFilter] = useState('all');
 
     const { repository } = useParams();
     useEffect(async () => {
@@ -21,12 +30,12 @@ function Repository() {
         // Solicitação juntas, porem em paralelo
         const [infoRepo, issues] = await Promise.all([
             API.get(`/repos/${repoName}`),
-            API.get(`/repos/${repoName}/issues`),
+            API.get(`/repos/${repoName}/issues?state=${filter}`),
         ]);
         setRepository(infoRepo.data);
         setIssues(issues.data);
         setLoading(false);
-    }, []);
+    }, [filter]);
     if (loading) {
         return (
             <Loading>
@@ -62,6 +71,13 @@ function Repository() {
                     </span>
                 </div>
             </Owner>
+            <Select>
+                <select onChange={(e) => setFilter(e.target.value)}>
+                    <option value="all">Todas</option>
+                    <option value="closed">Abertas</option>
+                    <option value="open">Fechadas</option>
+                </select>
+            </Select>
             <IssueList>
                 {StateIssues.map((issue) => (
                     <li key={String(issue.id)}>
@@ -89,6 +105,9 @@ function Repository() {
                             </strong>
                             <p>{issue.user.login}</p>
                         </div>
+                        <State state={issue.state}>
+                            {issue.state.toUpperCase()}
+                        </State>
                     </li>
                 ))}
             </IssueList>

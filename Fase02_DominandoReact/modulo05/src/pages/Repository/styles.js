@@ -40,7 +40,7 @@ const Owner = styled.div`
         color: #768390;
         max-width: 400px;
     }
-    span{
+    span {
         border-bottom: 1px solid #444c56;
         border-top: 1px solid #444c56;
         color: #adbac7;
@@ -70,13 +70,14 @@ const IssueList = styled.ul`
     list-style: none;
 
     li {
+        position: relative;
         display: flex;
         padding: 15px 10px;
         border: 1px solid #444c56;
         border-radius: 6px;
-    }
-    & + li {
-        margin-top: 10px;
+        & + li {
+            margin-top: 10px;
+        }
     }
     img {
         width: 36px;
@@ -85,7 +86,7 @@ const IssueList = styled.ul`
         border: 2px solid #eee;
     }
     div {
-        flex: 1;
+        flex: 0.9;
         margin-left: 15px;
         strong {
             font-size: 16px;
@@ -117,5 +118,27 @@ const Label = styled.span`
     padding: 3px 4px;
     margin-left: 10px;
 `;
+const Select = styled.div`
+    display: flex;
+    justify-content: end;
+    select {
+        background-color: #373e47;
+        border: 1px solid #cdd9e51a;
+        color: #adbac7;
+    }
+`;
+const State = styled.span`
+    right: 0;
+    top: 0;
+    margin: 4px;
+    position: absolute;
+    border-radius: 2px;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 3px 4px;
+    color: #fff;
+    background-color: ${(props) =>
+        props.state === 'closed' ? '#347d39' : '#c38000'};
+`;
 
-export { Owner, Loading, ButtonBack, IssueList, Label };
+export { Owner, Loading, ButtonBack, IssueList, Label, Select, State };
