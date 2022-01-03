@@ -50,7 +50,7 @@ throw new Error('Repositório duplicado');
 
 #### 3. Filtro de estado
 
-Adicione um filtro de estado na listagem de Issues que criamos no detalhe do repositório. O estado representa se a issue está em aberto, fechada ou uma opção para exibir todas.
+- [X] Adicione um filtro de estado na listagem de Issues que criamos no detalhe do repositório. O estado representa se a issue está em aberto, fechada ou uma opção para exibir todas.
 
 Exemplos de requisição:
 

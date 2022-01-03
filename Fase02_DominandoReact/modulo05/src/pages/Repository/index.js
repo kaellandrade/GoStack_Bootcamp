@@ -30,11 +30,13 @@ function Repository() {
         // Solicitação juntas, porem em paralelo
         const [infoRepo, issues] = await Promise.all([
             API.get(`/repos/${repoName}`),
-            API.get(`/repos/${repoName}/issues?state=${filter}`),
+            API.get(`/repos/${repoName}/issues?page=${1}&per_page=10&state=${filter}`),
         ]);
         setRepository(infoRepo.data);
         setIssues(issues.data);
         setLoading(false);
+        console.log(issues.data);
+        console.log(infoRepo.data);
     }, [filter]);
     if (loading) {
         return (
@@ -74,8 +76,8 @@ function Repository() {
             <Select>
                 <select onChange={(e) => setFilter(e.target.value)}>
                     <option value="all">Todas</option>
-                    <option value="closed">Abertas</option>
-                    <option value="open">Fechadas</option>
+                    <option value="closed">Fechdas</option>
+                    <option value="open">Abertas</option>
                 </select>
             </Select>
             <IssueList>
