@@ -29,7 +29,7 @@ const Main = () => {
         try {
             e.preventDefault();
             setLoading(true);
-            const response = await API.get(`repos/rocketseat/${newRepo}`);
+            const response = await API.get(`repos/kaellandrade/${newRepo}`);
             const data = {
                 name: response.data.full_name,
                 description: response.data.description,
