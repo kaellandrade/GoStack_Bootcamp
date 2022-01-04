@@ -140,5 +140,32 @@ const State = styled.span`
     background-color: ${(props) =>
         props.state === 'closed' ? '#347d39' : '#c38000'};
 `;
+const Pages = styled.div.attrs((props) => ({
+    disabled: props.page,
+}))`
+    justify-content: center;
+    display: flex;
+    padding: 10px 0px;
+    button {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        color: #c9d1d9;
+        margin: 2px;
+        padding: 4px;
+        background-color: #21262d;
+        border: 1px solid #f0f6fc1a;
+        transition: 0.4s;
+        border-radius: 5px;
+        &:hover {
+            background-color: #30363d;
+            border-color: #8b949e;
+        }
+        &[disabled] {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+    }
+`;
 
-export { Owner, Loading, ButtonBack, IssueList, Label, Select, State };
+export { Owner, Loading, ButtonBack, IssueList, Label, Select, State, Pages };
