@@ -28,6 +28,16 @@ Criar um página com React capaz de consumir alguns recursos da <a href='https:/
   <figcaption>Tela para os detalhes do repositório</figcaption>
 </figure>
 
+<figure>
+  <img src="prints/pic3.png" alt="Add Repo" style="width:100%">
+  <figcaption>Paginação das issues.</figcaption>
+</figure>
+
+<figure>
+  <img src="prints/pic4.png" alt="Add Repo" style="width:100%">
+  <figcaption>Tela de Loading da aplicação.</figcaption>
+</figure>
+
 ## :pencil2: Comentário
 
 Aqui utilizei apenas componentes funcionais para estruturar toda a plicação. Além disso, utilizei bibliotecas interessantes tais como `axios`, `date-fns`, `styled-components` e muito mais. Aqui também foi utilizado o `localstorage` do navegador para armazear os dados, pois assim não perdemos nossos dados após atualizar a página. <a href='https://kaellandrade.github.io/GoStack_Bootcamp/'>Página do projeto.</a>
