@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import pt from 'date-fns/locale/pt';
 import { format, parseISO } from 'date-fns';
-import { FaSpinner, FaArrowLeft, FaCalendar } from 'react-icons/fa';
+import {
+    FaSpinner,
+    FaArrowLeft,
+    FaCalendar,
+    FaStepBackward,
+    FaStepForward,
+} from 'react-icons/fa';
 import { useParams, Link } from 'react-router-dom';
 import API from '../../services/api';
 
@@ -13,6 +19,7 @@ import {
     Label,
     Select,
     State,
+    Pages,
 } from './styles';
 
 import Container from '../../Components/Container/index';
@@ -22,6 +29,16 @@ function Repository() {
     const [StateIssues, setIssues] = useState([]);
     const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState('all');
+    const [page, setPage] = useState(1);
+
+    const nextPage = () => {
+        setLoading(true)
+        setPage(page + 1);
+    };
+
+    const backpage = () => {
+        if (page > 1) setPage(page - 1);
+    };
 
     const { repository } = useParams();
     useEffect(async () => {
@@ -30,14 +47,14 @@ function Repository() {
         // Solicitação juntas, porem em paralelo
         const [infoRepo, issues] = await Promise.all([
             API.get(`/repos/${repoName}`),
-            API.get(`/repos/${repoName}/issues?page=${1}&per_page=10&state=${filter}`),
+            API.get(
+                `/repos/${repoName}/issues?page=${page}&per_page=10&state=${filter}`
+            ),
         ]);
         setRepository(infoRepo.data);
         setIssues(issues.data);
         setLoading(false);
-        console.log(issues.data);
-        console.log(infoRepo.data);
-    }, [filter]);
+    }, [filter,page]);
     if (loading) {
         return (
             <Loading>
@@ -113,6 +130,14 @@ function Repository() {
                     </li>
                 ))}
             </IssueList>
+            <Pages>
+                <button disabled={page === 1} onClick={backpage}>
+                    <FaStepBackward /> Voltar
+                </button>
+                <button disabled={loading} onClick={nextPage}>
+                    <FaStepForward /> Próximo
+                </button>
+            </Pages>
         </Container>
     );
 }
