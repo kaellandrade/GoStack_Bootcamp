@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/GoStack_Bootcamp/static/js/main.345aa73f.js",
+    "main.js": "/GoStack_Bootcamp/static/js/main.a280d13c.js",
     "index.html": "/GoStack_Bootcamp/index.html",
-    "main.345aa73f.js.map": "/GoStack_Bootcamp/static/js/main.345aa73f.js.map"
+    "main.a280d13c.js.map": "/GoStack_Bootcamp/static/js/main.a280d13c.js.map"
   },
   "entrypoints": [
-    "static/js/main.345aa73f.js"
+    "static/js/main.a280d13c.js"
   ]
 }
