@@ -1,4 +1,6 @@
 package com.modulo06;
+import com.facebook.react.bridge.JSIModulePackage; // <- add
+import com.swmansion.reanimated.ReanimatedJSIModulePackage; // <- add
 
 import android.app.Application;
 import android.content.Context;
@@ -33,6 +35,11 @@ public class MainApplication extends Application implements ReactApplication {
         protected String getJSMainModuleName() {
           return "index";
         }
+
+        @Override
+        protected JSIModulePackage getJSIModulePackage() {
+            return new ReanimatedJSIModulePackage(); // <- add
+      }
       };
 
   @Override
