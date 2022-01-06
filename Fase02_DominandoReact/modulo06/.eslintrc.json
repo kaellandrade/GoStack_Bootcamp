@@ -10,13 +10,22 @@
     },
     "globals": {
         "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+        "SharedArrayBuffer": "readonly",
+        "__DEV__": "readonly"
     },
     "rules": {
-        "no-unused-vars": [1, {"args": "after-used", "argsIgnorePattern": "_"}],
+        "no-unused-vars": [
+            1,
+            { "args": "after-used", "argsIgnorePattern": "_" }
+        ],
         "no-useless-constructor": "off",
         "import/prefer-default-export": "off",
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+        "import/extensions": [
+            {
+                "js": "always"
+            }
+        ]
     },
     "plugins": ["prettier", "react"]
 }
