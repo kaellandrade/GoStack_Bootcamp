@@ -16,14 +16,21 @@ export const Form = styled.View`
 export const Input = styled.TextInput.attrs({
     placeholderTextColor: '#999',
 })`
-    flex: 1;
+    color: #000;
+    flex: 0.9;
     height: 40px;
-    background: #eee;
-    border-radius: 4px;
-    padding: 0 15px;
-    border: 1px solid #eee;
 `;
 
+export const InputIcon = styled.View`
+    background: #e1e1e1;
+    border-radius: 4px;
+    padding: 0 5px;
+    border: 1px solid #8e8e8e;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+`;
 export const SubmitButton = styled(RectButton)`
     justify-content: center;
     align-items: center;
