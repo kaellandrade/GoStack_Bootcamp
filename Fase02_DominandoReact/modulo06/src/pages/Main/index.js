@@ -1,8 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { Keyboard } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { Container, Form, Input, SubmitButton, InputIcon } from './styles';
+import {
+    Container,
+    Form,
+    Input,
+    SubmitButton,
+    InputIcon,
+    List,
+    User,
+    Avatar,
+    Name,
+    ProfileButton,
+    ProfileButtonText,
+    Bio,
+} from './styles';
 import API from '../../services/api';
+
+const renderUser = ({ item }) => {
+    return (
+        <User>
+            <Avatar source={{ uri: item.avatar }} />
+            <Name>{item.name}</Name>
+            <Bio>{item.bio}</Bio>
+            <ProfileButton onPress={() => {}}>
+                <ProfileButtonText>Ver perfil</ProfileButtonText>
+            </ProfileButton>
+        </User>
+    );
+};
 
 const Main = ({ navigation }) => {
     const [newUser, setUser] = useState('');
@@ -16,6 +42,7 @@ const Main = ({ navigation }) => {
             bio: response.data.bio,
             avatar: response.data.avatar_url,
             twitter: response.data.twitter_username,
+            id: response.data.id,
         };
         setUsers([...users, data]);
         setUser('');
@@ -40,7 +67,7 @@ const Main = ({ navigation }) => {
                         onPress={() => setUser('')}
                         name="close"
                         size={25}
-                        color="#121214"
+                        color="#8e8e8e"
                         style={{ padding: 6 }}
                     />
                 </InputIcon>
@@ -48,6 +75,11 @@ const Main = ({ navigation }) => {
                     <Icon name="add" size={20} color="#FFF" />
                 </SubmitButton>
             </Form>
+            <List
+                data={users}
+                keyExtractor={(user) => user.id}
+                renderItem={renderUser}
+            />
         </Container>
     );
 };
