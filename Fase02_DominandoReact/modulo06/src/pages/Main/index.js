@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Keyboard } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Keyboard, ActivityIndicator } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
     Container,
@@ -11,30 +12,58 @@ import {
     User,
     Avatar,
     Name,
-    ProfileButton,
-    ProfileButtonText,
+    Profile,
     Bio,
+    Separator,
 } from './styles';
 import API from '../../services/api';
-
-const renderUser = ({ item }) => {
-    return (
-        <User>
-            <Avatar source={{ uri: item.avatar }} />
-            <Name>{item.name}</Name>
-            <Bio>{item.bio}</Bio>
-            <ProfileButton onPress={() => {}}>
-                <ProfileButtonText>Ver perfil</ProfileButtonText>
-            </ProfileButton>
-        </User>
-    );
-};
 
 const Main = ({ navigation }) => {
     const [newUser, setUser] = useState('');
     const [users, setUsers] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        getAsyncData();
+    }, []);
+
+    const addUserStorage = async (newUser) => {
+        try {
+            const newsUsers = [...users, newUser];
+            await AsyncStorage.setItem('@users', JSON.stringify(newsUsers));
+            setUsers(newsUsers);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const getAsyncData = async () => {
+        try {
+            const users = await AsyncStorage.getItem('@users');
+            setUsers(JSON.parse(users));
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const handleNavigate = (user) => {
+        navigation.navigate('User', {user});
+    };
+
+    const renderUser = ({ item }) => {
+        return (
+            <User onPress={(_) => handleNavigate(item)}>
+                <Avatar source={{ uri:   item.avatar }} />
+                <Profile>
+                    <Name>{item.name}</Name>
+                    <Bio>{item.bio}</Bio>
+                </Profile>
+            </User>
+        );
+    };
 
     const handleAddUser = async () => {
+        setLoading(true);
         const response = await API.get(`/users/${newUser}`);
         const data = {
             name: response.data.name,
@@ -44,10 +73,10 @@ const Main = ({ navigation }) => {
             twitter: response.data.twitter_username,
             id: response.data.id,
         };
-        setUsers([...users, data]);
+        addUserStorage(data);
         setUser('');
         Keyboard.dismiss();
-        console.tron.log(users);
+        setLoading(false);
     };
 
     return (
@@ -57,25 +86,32 @@ const Main = ({ navigation }) => {
                     <Input
                         autoCorrect={false}
                         autoCapitalize="none"
-                        placeholder="Adiconar usuário"
+                        placeholder="Adicionar usuário"
                         value={newUser}
                         onChangeText={(text) => setUser(text)}
                         returnKeyType="send"
                         onSubmitEditing={handleAddUser}
                     />
-                    <Icon
-                        onPress={() => setUser('')}
-                        name="close"
-                        size={25}
-                        color="#8e8e8e"
-                        style={{ padding: 6 }}
-                    />
+                    {newUser ? (
+                        <Icon
+                            onPress={() => setUser('')}
+                            name="close"
+                            size={25}
+                            color="#8e8e8e"
+                            style={{ padding: 6 }}
+                        />
+                    ) : null}
                 </InputIcon>
-                <SubmitButton onPress={handleAddUser}>
-                    <Icon name="add" size={20} color="#FFF" />
+                <SubmitButton loading={loading} onPress={handleAddUser}>
+                    {loading ? (
+                        <ActivityIndicator color="#FFF" />
+                    ) : (
+                        <Icon name="add" size={20} color="#FFF" />
+                    )}
                 </SubmitButton>
             </Form>
             <List
+                ItemSeparatorComponent={Separator}
                 data={users}
                 keyExtractor={(user) => user.id}
                 renderItem={renderUser}
