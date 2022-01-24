@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Main from './pages/Main';
 import User from './pages/User';
+import Star from './pages/Star';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,11 @@ const Routes = () => {
                     options={({ route }) => ({ title: route.params.user.name })}
                     name="User"
                     component={User}
+                />
+                <Stack.Screen
+                    options={({ route }) => ({ title: route.params.star.name })}
+                    name="Star"
+                    component={Star}
                 />
             </Stack.Navigator>
         </NavigationContainer>

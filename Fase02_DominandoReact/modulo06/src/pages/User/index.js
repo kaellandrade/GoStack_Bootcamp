@@ -16,23 +16,31 @@ import {
     Label,
     Loading,
 } from './styles';
-import { ActivityIndicator } from 'react-native';
-const renderStars = ({ item }) => {
-    return (
-        <Starred>
-            <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
-            <Info>
-                <Title>{item.name}</Title>
-                <Author>{item.owner.login}</Author>
-            </Info>
-        </Starred>
-    );
-};
+import { ActivityIndicator, TouchableWithoutFeedback } from 'react-native';
 
-const User = ({ route }) => {
+const User = ({ route, navigation }) => {
+    const handleNavigate = (star) => {
+        navigation.navigate('Star', { star });
+    };
+
+    const renderStars = ({ item }) => {
+        return (
+            <TouchableWithoutFeedback onPress={(_) => handleNavigate(item)}>
+                <Starred>
+                    <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
+                    <Info>
+                        <Title>{item.name}</Title>
+                        <Author>{item.owner.login}</Author>
+                    </Info>
+                </Starred>
+            </TouchableWithoutFeedback>
+        );
+    };
+
     const user = route.params.user;
     const [stars, setStars] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [refre, setRefresh] = useState(false);
     const [page, setPage] = useState(1);
 
     useEffect(() => {
@@ -41,16 +49,29 @@ const User = ({ route }) => {
     }, [page]);
 
     const loadMore = (_) => {
-        console.tron.log(page);
         setPage(page + 1);
+    };
+    const refresh = (_) => {
+        setRefresh(true);
+        setPage(1);
     };
 
     const getRepos = async () => {
-        const response = await API.get(
-            `/users/${user.login}/starred?page=${page}`
-        );
-        setStars(response.data);
-        setLoading(false);
+        try {
+            const response = await API.get(
+                `/users/${user.login}/starred?page=${page}`
+            );
+            setStars(response.data);
+            // Fim dos repositórios favoritos
+            if (response.data.length === 0) {
+                setPage(1);
+            }
+
+            setLoading(false);
+            setRefresh(false);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
@@ -74,6 +95,8 @@ const User = ({ route }) => {
                     renderItem={renderStars}
                     onEndReachedThreshold={0.2}
                     onEndReached={loadMore}
+                    onRefresh={refresh}
+                    refreshing={refre}
                 />
             )}
         </Container>
