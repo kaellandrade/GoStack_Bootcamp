@@ -13,9 +13,10 @@ import {
     Title,
     Author,
     Stars,
+    Label,
+    Loading,
 } from './styles';
-// TODO: CARREGAR MAIS ITEM QUANDO CHEGAR AO FIM DA LISTA onEndReached e add um loading e add WEB VIEW
-
+import { ActivityIndicator } from 'react-native';
 const renderStars = ({ item }) => {
     return (
         <Starred>
@@ -31,13 +32,17 @@ const renderStars = ({ item }) => {
 const User = ({ route }) => {
     const user = route.params.user;
     const [stars, setStars] = useState([]);
+    const [loading, setLoading] = useState(false);
+
     useEffect(() => {
+        setLoading(true);
         getRepos();
     }, []);
 
     const getRepos = async () => {
         const response = await API.get(`/users/${user.login}/starred`);
         setStars(response.data);
+        setLoading(false);
     };
 
     return (
@@ -49,11 +54,18 @@ const User = ({ route }) => {
                     <Bio>{user.bio}</Bio>
                 </Profile>
             </Header>
-            <Stars
-                data={stars}
-                key={(star) => String(star.id)}
-                renderItem={renderStars}
-            />
+            {loading ? (
+                <Loading>
+                    <Label>Carregando...</Label>
+                    <ActivityIndicator size={60} color="#b3b3b3" />
+                </Loading>
+            ) : (
+                <Stars
+                    data={stars}
+                    key={(star) => String(star.id)}
+                    renderItem={renderStars}
+                />
+            )}
         </Container>
     );
 };

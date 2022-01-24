@@ -40,7 +40,9 @@ const Main = ({ navigation }) => {
     const getAsyncData = async () => {
         try {
             const users = await AsyncStorage.getItem('@users');
-            setUsers(JSON.parse(users));
+            if(users){
+                setUsers(JSON.parse(users));
+            }
         } catch (error) {
             console.log(error);
         }
@@ -73,7 +75,9 @@ const Main = ({ navigation }) => {
             twitter: response.data.twitter_username,
             id: response.data.id,
         };
-        addUserStorage(data);
+        if(response){
+            addUserStorage(data);
+        }
         setUser('');
         Keyboard.dismiss();
         setLoading(false);

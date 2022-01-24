@@ -68,3 +68,14 @@ export const Author = styled.Text`
     color: #666;
     margin-top: 2px;
 `;
+export const Loading = styled.View`
+    display: flex;
+    align-items: center;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+`;
+export const Label = styled.Text`
+    font-size: 20px;
+    color: #666;
+`;
