@@ -33,14 +33,22 @@ const User = ({ route }) => {
     const user = route.params.user;
     const [stars, setStars] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [page, setPage] = useState(1);
 
     useEffect(() => {
         setLoading(true);
         getRepos();
-    }, []);
+    }, [page]);
+
+    const loadMore = (_) => {
+        console.tron.log(page);
+        setPage(page + 1);
+    };
 
     const getRepos = async () => {
-        const response = await API.get(`/users/${user.login}/starred`);
+        const response = await API.get(
+            `/users/${user.login}/starred?page=${page}`
+        );
         setStars(response.data);
         setLoading(false);
     };
@@ -64,6 +72,8 @@ const User = ({ route }) => {
                     data={stars}
                     key={(star) => String(star.id)}
                     renderItem={renderStars}
+                    onEndReachedThreshold={0.2}
+                    onEndReached={loadMore}
                 />
             )}
         </Container>
