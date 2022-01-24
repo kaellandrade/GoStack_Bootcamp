@@ -17,7 +17,7 @@ import {
     Loading,
 } from './styles';
 import { ActivityIndicator, TouchableWithoutFeedback } from 'react-native';
-
+import IfRender from '../../components/If';
 const User = ({ route, navigation }) => {
     const handleNavigate = (star) => {
         navigation.navigate('Star', { star });
@@ -89,15 +89,17 @@ const User = ({ route, navigation }) => {
                     <ActivityIndicator size={60} color="#b3b3b3" />
                 </Loading>
             ) : (
-                <Stars
-                    data={stars}
-                    key={(star) => String(star.id)}
-                    renderItem={renderStars}
-                    onEndReachedThreshold={0.2}
-                    onEndReached={loadMore}
-                    onRefresh={refresh}
-                    refreshing={refre}
-                />
+                <IfRender condition={stars.length !== 0}>
+                    <Stars
+                        data={stars}
+                        key={(star) => String(star.id)}
+                        renderItem={renderStars}
+                        onEndReachedThreshold={0.2}
+                        onEndReached={loadMore}
+                        onRefresh={refresh}
+                        refreshing={refre}
+                    />
+                </IfRender>
             )}
         </Container>
     );
