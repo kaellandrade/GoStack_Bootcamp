@@ -16,6 +16,8 @@
 
 - [ :bookmark_tabs: Desafio 5 Primeiro projeto com ReactJS](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase02_DominandoReact/desafio5)
 
+- [ :bookmark_tabs: Desafio 6 Aplicação com React Native](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase02_DominandoReact/desafio06)
+
 ## :memo: Referências
 
 - [RockeatSeat](https://www.rocketseat.com.br/)
