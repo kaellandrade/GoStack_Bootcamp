@@ -40,7 +40,7 @@ Nesse desafio você adicionará novas funcionalidades na aplicação que desenvo
 
 #### 2. Scroll infinito
 
-Adicione uma funcionalidade de scroll infinito na lista de repositórios favoritados. Assim que o usuário chegar nos **20%** do final de lista, busque pelos items na próxima página e adicione na lista. Seu código ficará da seguinte forma:
+- [X] Adicione uma funcionalidade de scroll infinito na lista de repositórios favoritados. Assim que o usuário chegar nos **20%** do final de lista, busque pelos items na próxima página e adicione na lista. Seu código ficará da seguinte forma:
 
 ```js
 <Stars
