@@ -16,7 +16,7 @@ import {
     Label,
     Loading,
 } from './styles';
-import { ActivityIndicator, TouchableWithoutFeedback } from 'react-native';
+import { ActivityIndicator, TouchableNativeFeedback } from 'react-native';
 import IfRender from '../../components/If';
 const User = ({ route, navigation }) => {
     const handleNavigate = (star) => {
@@ -25,7 +25,7 @@ const User = ({ route, navigation }) => {
 
     const renderStars = ({ item }) => {
         return (
-            <TouchableWithoutFeedback onPress={(_) => handleNavigate(item)}>
+            <TouchableNativeFeedback onPress={(_) => handleNavigate(item)}>
                 <Starred>
                     <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
                     <Info>
@@ -33,7 +33,7 @@ const User = ({ route, navigation }) => {
                         <Author>{item.owner.login}</Author>
                     </Info>
                 </Starred>
-            </TouchableWithoutFeedback>
+            </TouchableNativeFeedback>
         );
     };
 
