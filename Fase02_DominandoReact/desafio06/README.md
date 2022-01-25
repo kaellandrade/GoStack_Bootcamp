@@ -36,11 +36,11 @@ Nesse desafio você adicionará novas funcionalidades na aplicação que desenvo
 
 #### 1. Loading de repositórios
 
-- [X] Adicione um indicator de loading utilizando `<ActivityIndicator />` antes de carregar a lista de repositórios favoritados na tela de detalhes do Usuário.
+- [x] Adicione um indicator de loading utilizando `<ActivityIndicator />` antes de carregar a lista de repositórios favoritados na tela de detalhes do Usuário.
 
 #### 2. Scroll infinito
 
-- [X] Adicione uma funcionalidade de scroll infinito na lista de repositórios favoritados. Assim que o usuário chegar nos **20%** do final de lista, busque pelos items na próxima página e adicione na lista. Seu código ficará da seguinte forma:
+- [x] Adicione uma funcionalidade de scroll infinito na lista de repositórios favoritados. Assim que o usuário chegar nos **20%** do final de lista, busque pelos items na próxima página e adicione na lista. Seu código ficará da seguinte forma:
 
 ```js
 <Stars
@@ -58,7 +58,7 @@ https://api.github.com/users/diego3g/starred?page=2
 
 #### 3. Pull to Refresh
 
-- [X] Adicione uma funcionalidade para quando o usuário arrastar a listagem de repositórios favoritados pra baixo atualize a lista resetando o estado, ou seja, volte o estado da paginação para a página 1 exibindo apenas os 30 primeiros itens.
+- [x] Adicione uma funcionalidade para quando o usuário arrastar a listagem de repositórios favoritados pra baixo atualize a lista resetando o estado, ou seja, volte o estado da paginação para a página 1 exibindo apenas os 30 primeiros itens.
 
 A funcionalidade "Pull to Refresh" existe por padrão na FlatList e pode ser implementada através do seguinte código:
 
@@ -72,7 +72,7 @@ A funcionalidade "Pull to Refresh" existe por padrão na FlatList e pode ser imp
 
 #### 4. WebView
 
-- [X] Crie uma nova página na aplicação que vai ser acessada quando o usuário clicar em um repositório favoritado, essa página deve conter apenas o Header da aplicação. O conteúdo da página será uma WebView, ou seja, um browser integrado que exibe o atributo `html_url` presente no objeto do repositório que vem da API do Github.
+- [x] Crie uma nova página na aplicação que vai ser acessada quando o usuário clicar em um repositório favoritado, essa página deve conter apenas o Header da aplicação. O conteúdo da página será uma WebView, ou seja, um browser integrado que exibe o atributo `html_url` presente no objeto do repositório que vem da API do Github.
 
 Documentação de utilização da [WebView](https://github.com/react-native-community/react-native-webview/blob/master/docs/Getting-Started.md).
 
@@ -84,7 +84,11 @@ Exemplo de código:
 
 Resultado:
 
-![WebView](.github/exemplo-web-view.png)
+<div >
+  <img width="200" alt="GitHub language count" src=".github/1.jpg">
+  <img width="200" alt="GitHub language count" src=".github/2.jpg">
+  <img width="200" alt="GitHub language count" src=".github/3.jpg">
+</div>
 
 ## 📅 Entrega
 
