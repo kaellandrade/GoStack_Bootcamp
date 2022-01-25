@@ -85,9 +85,9 @@ Exemplo de código:
 ## ✅ Resultado do meu Desafio
 [Resposta aqui](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase02_DominandoReact/modulo06)
 <div >
-  <img width="250" alt="GitHub language count" src=".github/1.jpg">
-  <img width="250" alt="GitHub language count" src=".github/2.jpg">
-  <img width="250" alt="GitHub language count" src=".github/3.jpg">
+  <img width="250" alt="GitHub language count" src="../../Fase02_DominandoReact/modulo06/prints/1.jpg">
+  <img width="250" alt="GitHub language count" src="../../Fase02_DominandoReact/modulo06/prints/2.jpg">
+  <img width="250" alt="GitHub language count" src="../../Fase02_DominandoReact/modulo06/prints/3.jpg">
 </div>
 
 ## 📅 Entrega
