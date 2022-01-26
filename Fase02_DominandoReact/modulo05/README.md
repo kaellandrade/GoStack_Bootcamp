@@ -3,7 +3,7 @@
 </h1>
 
 <h3 align="center">
-  Projeto: Usando API do GitHub
+  Projeto: Usando API do GitHub (React Js)
 </h3>
 
 <p align="center">
