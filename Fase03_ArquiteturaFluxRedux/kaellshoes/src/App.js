@@ -1,5 +1,12 @@
-import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './routes';
+import Header from './components/Header';
 
-const App = () => <h1>Olá, mundo!</h1>;
+const App = () => (
+    <Router>
+        <Header/>
+        <Routes />
+    </Router>
+);
 
 export default App;
