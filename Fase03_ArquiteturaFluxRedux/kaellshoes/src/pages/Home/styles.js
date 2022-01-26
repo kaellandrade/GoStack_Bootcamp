@@ -59,6 +59,7 @@ export const ProductList = styled.ul`
                 text-align: center;
                 font-weight: bold;
             }
+
         }
     }
 `;
