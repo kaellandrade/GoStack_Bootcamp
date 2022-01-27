@@ -1,89 +1,51 @@
+import { useEffect, useState } from 'react';
 import { MdAddShoppingCart } from 'react-icons/md';
+
 import { ProductList } from './styles';
+import API from '../../services/api';
+
+import { formatPrice } from '../../util/format';
+
+const renderProducts = (products) =>
+    products.map(({ id, image, title, priceFormatted }) => (
+        <li key={id}>
+            <figure>
+                <img src={image} />
+                <figcaption>{title}</figcaption>
+                <span>{priceFormatted}</span>
+            </figure>
+            <button type="button">
+                <div>
+                    <MdAddShoppingCart size={16} color="#FFF" /> 3
+                </div>
+                <span>ADICIONAR AO CARRINHO</span>
+            </button>
+        </li>
+    ));
 
 function Home() {
-    return (
-        <ProductList>
-            <li>
-                <figure>
-                    <img src="https://imgcentauro-a.akamaihd.net/250x250/96159631A1/tenis-nike-wearallday-feminino-img.jpg" />
-                    <figcaption>Tênis muito legal.</figcaption>
-                    <span>R$129,90</span>
-                </figure>
-                <button type="button">
-                    <div>
-                        <MdAddShoppingCart size={16} color="#FFF" /> 3
-                    </div>
-                    <span>ADICIONAR AO CARRINHO</span>
-                </button>
-            </li>
-            <li>
-                <figure>
-                    <img src="https://imgcentauro-a.akamaihd.net/250x250/96159631A1/tenis-nike-wearallday-feminino-img.jpg" />
-                    <figcaption>Tênis muito legal.</figcaption>
-                    <span>R$129,90</span>
-                </figure>
-                <button type="button">
-                    <div>
-                        <MdAddShoppingCart size={16} color="#FFF" /> 3
-                    </div>
-                    <span>ADICIONAR AO CARRINHO</span>
-                </button>
-            </li>
-            <li>
-                <figure>
-                    <img src="https://imgcentauro-a.akamaihd.net/250x250/96159631A1/tenis-nike-wearallday-feminino-img.jpg" />
-                    <figcaption>Tênis muito legal.</figcaption>
-                    <span>R$129,90</span>
-                </figure>
-                <button type="button">
-                    <div>
-                        <MdAddShoppingCart size={16} color="#FFF" /> 3
-                    </div>
-                    <span>ADICIONAR AO CARRINHO</span>
-                </button>
-            </li>
-            <li>
-                <figure>
-                    <img src="https://imgcentauro-a.akamaihd.net/250x250/96159631A1/tenis-nike-wearallday-feminino-img.jpg" />
-                    <figcaption>Tênis muito legal.</figcaption>
-                    <span>R$129,90</span>
-                </figure>
-                <button type="button">
-                    <div>
-                        <MdAddShoppingCart size={16} color="#FFF" /> 3
-                    </div>
-                    <span>ADICIONAR AO CARRINHO</span>
-                </button>
-            </li>
-            <li>
-                <figure>
-                    <img src="https://imgcentauro-a.akamaihd.net/250x250/96159631A1/tenis-nike-wearallday-feminino-img.jpg" />
-                    <figcaption>Tênis muito legal.</figcaption>
-                    <span>R$129,90</span>
-                </figure>
-                <button type="button">
-                    <div>
-                        <MdAddShoppingCart size={16} color="#FFF" /> 3
-                    </div>
-                    <span>ADICIONAR AO CARRINHO</span>
-                </button>
-            </li>
-            <li>
-                <figure>
-                    <img src="https://imgcentauro-a.akamaihd.net/250x250/96159631A1/tenis-nike-wearallday-feminino-img.jpg" />
-                    <figcaption>Tênis muito legal.</figcaption>
-                    <span>R$129,90</span>
-                </figure>
-                <button type="button">
-                    <div>
-                        <MdAddShoppingCart size={16} color="#FFF" /> 3
-                    </div>
-                    <span>ADICIONAR AO CARRINHO</span>
-                </button>
-            </li>
-        </ProductList>
-    );
+    const [products, setProducts] = useState([]);
+
+    const getProducts = async () => {
+        try {
+            const response = await API.get('products');
+
+            const data = response.data.map((product) => ({
+                ...product,
+                priceFormatted: formatPrice(product.price),
+            }));
+            console.log(data);
+            setProducts(data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    useEffect(() => {
+        getProducts();
+    }, []);
+
+    return <ProductList>{renderProducts(products)}</ProductList>;
 }
 
 export default Home;
