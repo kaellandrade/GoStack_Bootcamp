@@ -7,7 +7,7 @@ export const Container = styled.header`
     align-items: center;
     margin: 50px 0;
 `;
-export const Cart = styled(Link).attrs({ to: '/' })`
+export const Cart = styled(Link).attrs({ to: '/cart' })`
     display: flex;
     align-items: center;
     text-decoration: none;

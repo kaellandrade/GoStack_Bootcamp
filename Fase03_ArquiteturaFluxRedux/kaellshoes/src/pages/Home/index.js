@@ -1,3 +1,4 @@
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { MdAddShoppingCart } from 'react-icons/md';
 
@@ -6,24 +7,36 @@ import API from '../../services/api';
 
 import { formatPrice } from '../../util/format';
 
-const renderProducts = (products) =>
-    products.map(({ id, image, title, priceFormatted }) => (
-        <li key={id}>
+import { addToCart } from '../../store/actions/cart';
+
+const renderProducts = (products) => {
+    const dispatch = useDispatch();
+    const cartSize = useSelector(({ cart }) => cart.length);
+
+    const handleAddProduct = (product) => {
+        dispatch(addToCart(product));
+    };
+
+    return products.map((product) => (
+        <li key={product.id}>
             <figure>
-                <img src={image} />
-                <figcaption>{title}</figcaption>
-                <span>{priceFormatted}</span>
+                <img src={product.image} />
+                <figcaption>{product.title}</figcaption>
+                <span>{product.priceFormatted}</span>
             </figure>
-            <button type="button">
+            <button type="button" onClick={(_) => handleAddProduct(product)}>
                 <div>
-                    <MdAddShoppingCart size={16} color="#FFF" /> 3
+                    <MdAddShoppingCart size={16} color="#FFF" /> {cartSize}
                 </div>
                 <span>ADICIONAR AO CARRINHO</span>
             </button>
         </li>
     ));
+};
 
 function Home() {
+    const totItems = useSelector(({ cart }) => cart.length);
+
     const [products, setProducts] = useState([]);
 
     const getProducts = async () => {
