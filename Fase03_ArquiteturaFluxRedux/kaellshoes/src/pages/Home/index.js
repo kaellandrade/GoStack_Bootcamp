@@ -35,8 +35,6 @@ const renderProducts = (products) => {
 };
 
 function Home() {
-    const totItems = useSelector(({ cart }) => cart.length);
-
     const [products, setProducts] = useState([]);
 
     const getProducts = async () => {
