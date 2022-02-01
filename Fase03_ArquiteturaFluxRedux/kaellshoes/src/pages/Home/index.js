@@ -9,10 +9,8 @@ import { formatPrice } from '../../util/format';
 
 import { addToCart } from '../../store/actions/cart';
 
-const renderProducts = (products) => {
+const renderProducts = (products, totByItem) => {
     const dispatch = useDispatch();
-    const cartSize = useSelector(({ cart }) => cart.length);
-
     const handleAddProduct = (product) => {
         dispatch(addToCart(product));
     };
@@ -26,7 +24,8 @@ const renderProducts = (products) => {
             </figure>
             <button type="button" onClick={(_) => handleAddProduct(product)}>
                 <div>
-                    <MdAddShoppingCart size={16} color="#FFF" /> {cartSize}
+                    <MdAddShoppingCart size={16} color="#FFF" />
+                    {totByItem[product.id] || 0}
                 </div>
                 <span>ADICIONAR AO CARRINHO</span>
             </button>
@@ -35,6 +34,13 @@ const renderProducts = (products) => {
 };
 
 function Home() {
+    const totByItem = useSelector(({ cart }) => cart).reduce(
+        (amount, product) => {
+            amount[product.id] = product.amount;
+            return amount;
+        },
+        {}
+    );
     const [products, setProducts] = useState([]);
 
     const getProducts = async () => {
@@ -45,7 +51,6 @@ function Home() {
                 ...product,
                 priceFormatted: formatPrice(product.price),
             }));
-            console.log(data);
             setProducts(data);
         } catch (error) {
             console.error(error);
@@ -56,7 +61,7 @@ function Home() {
         getProducts();
     }, []);
 
-    return <ProductList>{renderProducts(products)}</ProductList>;
+    return <ProductList>{renderProducts(products, totByItem)}</ProductList>;
 }
 
 export default Home;
