@@ -30,25 +30,17 @@ const renderCart = (carrinho) => {
             </td>
             <td>
                 <div>
-                    <button type="button">
-                        <MdRemoveCircleOutline
-                            size={20}
-                            color="#7150c1"
-                            onClick={(_) => decrement(item)}
-                        />
+                    <button type="button" onClick={(_) => decrement(item)}>
+                        <MdRemoveCircleOutline size={20} color="#7150c1" />
                     </button>
                     <input type="number" readOnly value={item.amount} />
-                    <button type="button">
-                        <MdAddCircleOutline
-                            size={20}
-                            color="#7150c1"
-                            onClick={(_) => increment(item)}
-                        />
+                    <button type="button" onClick={(_) => increment(item)}>
+                        <MdAddCircleOutline size={20} color="#7150c1" />
                     </button>
                 </div>
             </td>
             <td>
-                <strong>{formatPrice(item.amount * item.price)}</strong>
+                <strong>{item.subtotal}</strong>
             </td>
             <td>
                 <button
@@ -63,7 +55,15 @@ const renderCart = (carrinho) => {
 };
 
 function Cart() {
-    const carrinho = useSelector(({ cart }) => cart);
+    const carrinho = useSelector(({ cart }) => cart).map((product) => ({
+        ...product,
+        subtotal: formatPrice(product.price * product.amount),
+    }));
+
+    const total = formatPrice(
+        carrinho.reduce((tot, curr) => tot + curr.amount * curr.price, 0)
+    );
+
     return (
         <Container>
             <ProductTable>
@@ -82,7 +82,7 @@ function Cart() {
                 <button type="button">Finalizar pedido</button>
                 <Total>
                     <span>TOTAL</span>
-                    <strong>R$ 1920,23</strong>
+                    <strong>{total}</strong>
                 </Total>
             </footer>
         </Container>
