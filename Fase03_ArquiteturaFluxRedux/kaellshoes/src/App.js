@@ -4,10 +4,11 @@ import Routes from './routes';
 import Header from './components/Header';
 import './config/ReactotronConfig';
 import store from './store';
+import history from './services/history';
 
 const App = () => (
     <Provider store={store}>
-        <Router>
+        <Router history={history}>
             <Header />
             <Routes />
         </Router>

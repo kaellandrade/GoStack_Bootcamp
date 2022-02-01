@@ -7,12 +7,12 @@ import API from '../../services/api';
 
 import { formatPrice } from '../../util/format';
 
-import { addToCart } from '../../store/actions/cart';
+import { addToCartRequest } from '../../store/actions/cart';
 
 const renderProducts = (products, totByItem) => {
     const dispatch = useDispatch();
-    const handleAddProduct = (product) => {
-        dispatch(addToCart(product));
+    const handleAddProduct = (id) => {
+        dispatch(addToCartRequest(id));
     };
 
     return products.map((product) => (
@@ -22,7 +22,7 @@ const renderProducts = (products, totByItem) => {
                 <figcaption>{product.title}</figcaption>
                 <span>{product.priceFormatted}</span>
             </figure>
-            <button type="button" onClick={(_) => handleAddProduct(product)}>
+            <button type="button" onClick={(_) => handleAddProduct(product.id)}>
                 <div>
                     <MdAddShoppingCart size={16} color="#FFF" />
                     {totByItem[product.id] || 0}

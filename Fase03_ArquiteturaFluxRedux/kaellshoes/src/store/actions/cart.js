@@ -1,8 +1,21 @@
-import { ADD_TO_CART, REMOVE_TO_CART, UPDATE_AMOUNT } from '../actions';
+import {
+    ADD_TO_CART_REQUEST,
+    REMOVE_TO_CART,
+    UPDATE_AMOUNT_REQUEST,
+    UPDATE_AMOUNT_SUCCESS,
+    ADD_TO_CART_SUCCESS,
+} from '../actions';
 
-export function addToCart(product) {
+export function addToCartRequest(id) {
     return {
-        type: ADD_TO_CART,
+        type: ADD_TO_CART_REQUEST,
+        payload: id,
+    };
+}
+
+export function addToCartSuccess(product) {
+    return {
+        type: ADD_TO_CART_SUCCESS,
         payload: product,
     };
 }
@@ -14,9 +27,16 @@ export function removeToCart(id) {
     };
 }
 
-export function updateAmount(id, amount) {
+export function updateAmountRequest(id, amount) {
     return {
-        type: UPDATE_AMOUNT,
+        type: UPDATE_AMOUNT_REQUEST,
+        payload: { id, amount },
+    };
+}
+
+export function updateAmountSuccess(id, amount) {
+    return {
+        type: UPDATE_AMOUNT_SUCCESS,
         payload: { id, amount },
     };
 }

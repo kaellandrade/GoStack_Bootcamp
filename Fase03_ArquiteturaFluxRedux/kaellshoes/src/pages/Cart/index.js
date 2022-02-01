@@ -6,17 +6,17 @@ import {
 } from 'react-icons/md';
 import { Container, Total, ProductTable } from './styles';
 import { formatPrice } from '../../util/format';
-import { removeToCart, updateAmount } from '../../store/actions/cart';
+import { removeToCart, updateAmountRequest } from '../../store/actions/cart';
 
 const renderCart = (carrinho) => {
     const dispatch = useDispatch();
 
     const increment = (product) => {
-        dispatch(updateAmount(product.id, product.amount + 1));
+        dispatch(updateAmountRequest(product.id, product.amount + 1));
     };
 
     const decrement = (product) => {
-        dispatch(updateAmount(product.id, product.amount - 1));
+        dispatch(updateAmountRequest(product.id, product.amount - 1));
     };
 
     return carrinho.map((item, index) => (
