@@ -12,7 +12,7 @@ Aqui está todo meu progresso no Bootcamp promovido pela RockeatSeat. Além dos 
 
 - [Fase 02 Dominando o React](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase02_DominandoReact)
 
-- [Fase 03 Arquitetura Flux, React Hooks e Redux](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase02_DominandoReact)
+- [Fase 03 Arquitetura Flux, React Hooks e Redux](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase03_ArquiteturaFluxRedux)
 
 
 
