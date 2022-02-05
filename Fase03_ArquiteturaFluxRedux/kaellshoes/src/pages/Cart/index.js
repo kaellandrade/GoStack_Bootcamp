@@ -47,7 +47,7 @@ const renderCart = (carrinho) => {
                     type="button"
                     onClick={(_) => dispatch(removeToCart(item.id))}
                 >
-                    <MdDelete size={20} color="#7159c1" />
+                    <MdDelete size={20} color="#7159c1"  />
                 </button>
             </td>
         </tr>

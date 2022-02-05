@@ -6,10 +6,10 @@ import {
     ADD_TO_CART_SUCCESS,
 } from '../actions';
 
-export function addToCartRequest(id) {
+export function addToCartRequest(id, navigate) {
     return {
         type: ADD_TO_CART_REQUEST,
-        payload: id,
+        payload: {id, navigate},
     };
 }
 

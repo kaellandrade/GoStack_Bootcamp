@@ -4,9 +4,12 @@
 </h2>
 
 ### Projeto
-- [:book: Kaell Shoes](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase02_DominandoReact/modulo05)
+- [:book: Kaell Shoes](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase03_ArquiteturaFluxRedux/kaellshoes)
 
 ### Desafios
+- [:book: Hooks](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase03_ArquiteturaFluxRedux/desafio08)
+
+
 
 ## :memo: Referências
 

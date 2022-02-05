@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { MdAddShoppingCart } from 'react-icons/md';
+import {useNavigate} from 'react-router-dom'
 
 import { ProductList } from './styles';
 import API from '../../services/api';
@@ -11,8 +12,9 @@ import { addToCartRequest } from '../../store/actions/cart';
 
 const renderProducts = (products, totByItem) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     const handleAddProduct = (id) => {
-        dispatch(addToCartRequest(id));
+        dispatch(addToCartRequest(id, navigate));
     };
 
     return products.map((product) => (

@@ -2,16 +2,16 @@ import { call, put, all, takeLatest, select } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 import API from '../../../services/api';
 import { formatPrice } from '../../../util/format';
-import history from '../../../services/history';
 import { addToCartSuccess, updateAmountSuccess } from '../../actions/cart';
 import { ADD_TO_CART_REQUEST, UPDATE_AMOUNT_REQUEST } from '../../actions';
 
 function* addTocart({ payload }) {
+    const { id, navigate } = payload;
     const productExists = yield select(({ cart }) =>
-        cart.find((p) => p.id === payload)
+        cart.find((p) => p.id === id)
     );
 
-    const stock = yield call(API.get, `/stock/${payload}`);
+    const stock = yield call(API.get, `/stock/${id}`);
 
     const stockAmount = stock.data.amount;
     const currentAmount = productExists ? productExists.amount : 0;
@@ -24,9 +24,9 @@ function* addTocart({ payload }) {
     }
 
     if (productExists) {
-        yield put(updateAmountSuccess(payload, amount));
+        yield put(updateAmountSuccess(id, amount));
     } else {
-        const response = yield call(API.get, `/products/${payload}`);
+        const response = yield call(API.get, `/products/${id}`);
         const data = {
             ...response.data,
             amount: 1,
@@ -34,8 +34,7 @@ function* addTocart({ payload }) {
         };
 
         yield put(addToCartSuccess(data));
-        // history.push({ pathname: '/cart' });
-        // window.location.href = '/cart'
+        navigate('/cart');
     }
 }
 
