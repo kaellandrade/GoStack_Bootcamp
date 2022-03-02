@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+<h1 align="center">
+    <img alt="GoStack" src="https://logosmarcas.net/wp-content/uploads/2020/12/GitHub-Logo.png" width="200px" />
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3 align="center">
+  Projeto: Usando API do GitHub (React Js)
+</h3>
 
-## Available Scripts
+<p align="center">
+  <a href="#rocket-sobre-o-projeto">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#heavy_check_mark-resultado-do-projeto">Resultado</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#pencil2-comentário">Comentário</a>
+</p>
 
-In the project directory, you can run:
+## :rocket: Sobre o projeto
 
-### `yarn start`
+Criar um página com React capaz de consumir alguns recursos da <a href='https://docs.github.com/pt/rest'>API do github</a>. A página poderá inserir repositórios, ver detalhes de um dado repositório inserido e também as issues abertas.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## :heavy_check_mark: Resultado do projeto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<figure>
+  <img src="prints/pic1.png" alt="Add Repo" style="width:100%">
+  <figcaption>Tela para adicionar repositórios.</figcaption>
+</figure>
 
-### `yarn test`
+<figure>
+  <img src="prints/pic2.png" alt="Add Repo" style="width:100%">
+  <figcaption>Tela para os detalhes do repositório</figcaption>
+</figure>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<figure>
+  <img src="prints/pic3.png" alt="Add Repo" style="width:100%">
+  <figcaption>Paginação das issues.</figcaption>
+</figure>
 
-### `yarn build`
+<figure>
+  <img src="prints/pic4.png" alt="Add Repo" style="width:100%">
+  <figcaption>Tela de Loading da aplicação.</figcaption>
+</figure>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## :pencil2: Comentário
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Aqui utilizei apenas componentes funcionais para estruturar toda a plicação. Além disso, utilizei bibliotecas interessantes tais como `axios`, `date-fns`, `styled-components` e muito mais. Aqui também foi utilizado o `localstorage` do navegador para armazear os dados, pois assim não perdemos nossos dados após atualizar a página. <a href='https://kaellandrade.github.io/GoStack_Bootcamp/'>Página do projeto.</a>
