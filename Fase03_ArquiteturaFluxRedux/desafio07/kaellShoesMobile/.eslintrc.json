@@ -21,7 +21,11 @@
     "rules": {
         "no-unused-vars": [
             1,
-            { "args": "after-used", "argsIgnorePattern": "_" }
+            {
+                "args": "after-used",
+                "argsIgnorePattern": "_",
+                "no-undef": "__DEV__"
+            }
         ],
         "no-useless-constructor": "off",
         "import/prefer-default-export": "off",
