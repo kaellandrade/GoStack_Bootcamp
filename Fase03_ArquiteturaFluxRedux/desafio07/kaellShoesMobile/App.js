@@ -1,9 +1,14 @@
-import React from 'react';
-
+import './src/config/ReactotronConfig';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 import { Text } from 'react-native';
 
 function App(_) {
-    return <Text>Olá, mundo!</Text>;
+    return (
+        <NavigationContainer>
+            <Text>Olá, mundo!</Text>;
+        </NavigationContainer>
+    );
 }
 
 export default App;
