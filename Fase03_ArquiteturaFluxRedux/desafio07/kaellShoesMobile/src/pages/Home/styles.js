@@ -6,5 +6,5 @@ export const Container = styled.View`
 `;
 
 export const ProductsList = styled.FlatList`
-    border: 1px solid blue;
+    flex: 1;
 `;
