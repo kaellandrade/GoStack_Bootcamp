@@ -5,7 +5,7 @@ import { AppRoutes } from './src/routes';
 
 function App(_) {
     return (
-        <NavigationContainer>
+        <NavigationContainer >
             <AppRoutes />
         </NavigationContainer>
     );
