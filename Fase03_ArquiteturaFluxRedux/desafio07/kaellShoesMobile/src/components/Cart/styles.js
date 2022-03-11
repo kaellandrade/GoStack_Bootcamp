@@ -3,8 +3,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 export const InfoCard = styled.View`
     background-color: #ffffff;
-    width: 60%;
-    height: 20%;
+    width: 80%;
     border-radius: 20px;
     justify-content: center;
     align-items: center;
@@ -12,7 +11,7 @@ export const InfoCard = styled.View`
 
 export const NoItensText = styled.Text`
     font-size: 25px;
-    color: #000001;
+    color: #232323;
     font-weight: bold;
 `;
 
