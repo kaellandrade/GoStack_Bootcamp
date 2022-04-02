@@ -1,10 +1,10 @@
 import React from 'react';
 import propsTypes from 'prop-types';
-import BtnIcon from '../BtnIcon/BtnIcon';
+import {BtnICon, BtnText} from '../Btns/Btns';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {Text} from 'react-native'
+import { Text } from 'react-native';
 
-import { Container, ImgProduct, TitleProduct, Price } from './styles';
+import { Container, ImgProduct, TitleProduct, Price,GroupButton  } from './styles';
 
 const Card = ({ srcImg, title, price }) => {
     return (
@@ -12,10 +12,15 @@ const Card = ({ srcImg, title, price }) => {
             <ImgProduct source={{ uri: srcImg }} />
             <TitleProduct>{title}</TitleProduct>
             <Price>{price}</Price>
-            <BtnIcon>
-                <Icon name="cart" color={'#ececec'} size={30} />
-                <Text>Adicionar ao Carrinho</Text>
-            </BtnIcon>
+            <GroupButton>
+                <BtnICon>
+                    <Icon name="cart" color={'#ececec'} size={30} />
+                    <Text>2</Text>
+                </BtnICon>
+                <BtnText>
+                    <Text>Adicionar ao Carrinho</Text>
+                </BtnText>
+            </GroupButton>
         </Container>
     );
 };
