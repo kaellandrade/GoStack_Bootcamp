@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Alert } from 'react-native';
 import { useState, useEffect } from 'react';
 import { Container, ProductsList } from './styles';
@@ -7,6 +8,7 @@ import getNumbersRows from '../../util/getNumbersRows';
 import { CARD_SIZE, MARGIN_CARD } from '../../util/consts';
 import API from '../../services/api';
 import { formatPrice } from '../../util/format';
+import { addToCartRequest } from '../../store/actions/cart';
 
 /**
  * Recupera meus produtos da API
@@ -26,9 +28,25 @@ const getProducts = async (setProducts) => {
 
 export default (_) => {
     const [products, setProducts] = useState([]);
+
     useEffect((_) => {
         getProducts(setProducts);
     }, []);
+
+    const dispatch = useDispatch();
+    // TODO const navigate = useNavigate()
+
+    const handleAddProduct = (id) => {
+        dispatch(addToCartRequest(id, undefined));
+    };
+
+    const totByItem = useSelector(({ cart }) => cart).reduce(
+        (amount, product) => {
+            amount[product.id] = product.amount;
+            return amount;
+        },
+        {}
+    );
 
     return (
         <Container>
@@ -41,6 +59,9 @@ export default (_) => {
                         title={item.title}
                         price={item.priceFormatted}
                         srcImg={item.image}
+                        id={item.id}
+                        totByItem={totByItem}
+                        handleAddProduct={handleAddProduct}
                     />
                 )}
             />
