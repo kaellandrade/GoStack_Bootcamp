@@ -9,8 +9,8 @@ export const Container = styled.View`
     margin: ${MARGIN_CARD}px;
     background-color: #ffffff;
     border-radius: 8px;
-    padding: 0px  10px 0px;
-    `;
+    padding: 0px 10px 0px;
+`;
 export const ImgProduct = styled.Image`
     width: 260px;
     height: 260px;
@@ -24,7 +24,12 @@ export const Price = styled.Text`
 
 export const GroupButton = styled.View`
     flex-direction: row;
-    flex: 0.6;
     width: 100%;
-    height: 5px;
+    height: 40px;
+`;
+
+export const TextDescription = styled.Text`
+    color: white;
+    font-weight: bold;
+    text-align: center;
 `;
