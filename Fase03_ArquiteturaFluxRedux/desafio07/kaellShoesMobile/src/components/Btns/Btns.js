@@ -1,13 +1,14 @@
 import React from 'react';
-import { BtnRectText,BtnRect } from './styles';
+import { BtnRectText, BtnRect } from './styles';
 
-const BtnText = (props) => {
-    return <BtnRectText>{props.children}</BtnRectText>;
+const BtnText = ({ children, handleAddProduct }) => {
+    return (
+        <BtnRectText onPress={handleAddProduct}>{children}</BtnRectText>
+    );
 };
 
 const BtnICon = (props) => {
     return <BtnRect>{props.children}</BtnRect>;
 };
 
-
-export {BtnText,BtnICon};
+export { BtnText, BtnICon };
