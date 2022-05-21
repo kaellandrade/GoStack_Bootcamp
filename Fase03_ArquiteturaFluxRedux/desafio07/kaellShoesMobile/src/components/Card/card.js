@@ -2,7 +2,6 @@ import React from 'react';
 import propsTypes from 'prop-types';
 import { BtnICon, BtnText } from '../Btns/Btns';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Text } from 'react-native';
 
 import {
     Container,

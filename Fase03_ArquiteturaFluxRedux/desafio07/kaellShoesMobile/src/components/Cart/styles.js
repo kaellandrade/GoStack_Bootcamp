@@ -7,11 +7,12 @@ export const InfoCard = styled.View`
     border-radius: 20px;
     justify-content: center;
     align-items: center;
+    padding: 30px;
 `;
 
 export const NoItensText = styled.Text`
     font-size: 25px;
-    color: #232323;
+    color: rgba(35, 35, 35, 0.58);
     font-weight: bold;
 `;
 

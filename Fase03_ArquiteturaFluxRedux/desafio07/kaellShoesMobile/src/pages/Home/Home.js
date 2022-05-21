@@ -11,7 +11,9 @@ import { formatPrice } from '../../util/format';
 import { addToCartRequest } from '../../store/actions/cart';
 
 /**
- * Recupera meus produtos da API
+ * @version 1.0
+ * @param setProducts
+ * @returns {Promise<void>}
  */
 const getProducts = async (setProducts) => {
     try {
@@ -28,9 +30,10 @@ const getProducts = async (setProducts) => {
 
 export default (_) => {
     const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect((_) => {
-        getProducts(setProducts);
+        getProducts(setProducts).then(_ => setLoading(false))
     }, []);
 
     const dispatch = useDispatch();
@@ -51,6 +54,8 @@ export default (_) => {
     return (
         <Container>
             <ProductsList
+                onRefresh={_=>getProducts(setProducts)}
+                refreshing={loading}
                 data={products}
                 numColumns={getNumbersRows(CARD_SIZE + MARGIN_CARD)}
                 contentContainerStyle={{ alignItems: 'center' }}

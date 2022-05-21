@@ -41,7 +41,9 @@ const AppRoutes = (_) => {
             <Tab.Screen
                 name="Carrinho"
                 component={Cart}
-                options={{ tabBarBadge: totalAmount }}
+                options={
+                { tabBarBadge: totalAmount, tabBarBadgeStyle:{top:-2} }
+            }
             />
         </Tab.Navigator>
     );
