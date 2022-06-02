@@ -1,6 +1,6 @@
 import React from 'react';
 import propsTypes from 'prop-types';
-import { BtnICon, BtnText } from '../Btns/Btns';
+import { BtnICon, BtnText } from '../../Btns/Btns';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {
@@ -19,7 +19,7 @@ const Card = ({ srcImg, title, price, totByItem,id, handleAddProduct }) => {
             <TitleProduct>{title}</TitleProduct>
             <Price>{price}</Price>
             <GroupButton>
-                <BtnICon>
+                <BtnICon background={'#5b42b4'}>
                     <Icon name="cart" color={'#ececec'} size={30} />
                     <TextDescription>{totByItem[id] || 0}</TextDescription>
                 </BtnICon>

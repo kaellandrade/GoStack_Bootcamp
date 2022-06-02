@@ -1,23 +1,20 @@
 import * as React from 'react';
 import {useSelector} from "react-redux";
-import {Container} from './styles';
+import {ContainerCenter} from './styles';
 
-import EmptyCart from '../../components/Cart/EmptyCart';
-import {Text} from "react-native";
+import EmptyCart from '../../components/Cart/EmptyCart/EmptyCart';
+import CatList from '../../components/Cart/ListCart/CartList';
 
 export default (_) => {
 
 
     const cartDatas = useSelector(({cart}) => cart);
-    console.log(cartDatas);
-    const total = cartDatas.reduce((acumulador, {amount})=> acumulador + amount, 0);
+    const total = cartDatas.reduce((acumulador, {amount}) => acumulador + amount, 0);
     return cartDatas.length
         ?
-        <Container>
-            <Text>{total}</Text>
-        </Container>
+        <CatList/>
         :
-        <Container>
+        <ContainerCenter>
             <EmptyCart/>
-        </Container>
+        </ContainerCenter>
 };
