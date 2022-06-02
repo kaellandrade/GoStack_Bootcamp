@@ -5,7 +5,7 @@ export const BtnRect = styled(RectButton)`
     flex-direction: row;
     align-items: center;
     opacity: ${(props) => (props.loading ? 0.7 : 1)};
-    background-color: #5b42b4;
+    background-color: ${(props) => (props.background ? props.background : 'transparent')};
     padding: 0 10px 0;
 `;
 export const BtnRectText = styled(RectButton)`

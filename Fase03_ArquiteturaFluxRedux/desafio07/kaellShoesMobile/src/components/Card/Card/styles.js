@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { CARD_SIZE, MARGIN_CARD } from '../../util/consts';
+import { CARD_SIZE, MARGIN_CARD } from '../../../util/consts';
 
 export const Container = styled.View`
     width: ${CARD_SIZE}px;
