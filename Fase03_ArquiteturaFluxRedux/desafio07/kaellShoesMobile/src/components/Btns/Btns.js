@@ -8,7 +8,7 @@ const BtnText = ({ children, handleAddProduct }) => {
 };
 
 const BtnICon = (props) => {
-    return <BtnRect>{props.children}</BtnRect>;
+    return <BtnRect onPress={props.onPress} background={props.background}>{props.children}</BtnRect>;
 };
 
 export { BtnText, BtnICon };

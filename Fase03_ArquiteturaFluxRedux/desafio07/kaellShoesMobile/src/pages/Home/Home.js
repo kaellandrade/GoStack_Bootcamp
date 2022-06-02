@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Alert } from 'react-native';
 import { useState, useEffect } from 'react';
 import { Container, ProductsList } from './styles';
-import Card from '../../components/Card/card';
+import Card from '../../components/Card/Card/card';
 import getNumbersRows from '../../util/getNumbersRows';
 import { CARD_SIZE, MARGIN_CARD } from '../../util/consts';
 import API from '../../services/api';
