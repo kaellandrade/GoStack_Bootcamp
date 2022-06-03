@@ -1,66 +1,106 @@
 {
-  "stock": [
-    {
-      "id": 1,
-      "amount": 3
-    },
-    {
-      "id": 2,
-      "amount": 5
-    },
-    {
-      "id": 3,
-      "amount": 2
-    },
-    {
-      "id": 4,
-      "amount": 1
-    },
-    {
-      "id": 5,
-      "amount": 5
-    },
-    {
-      "id": 6,
-      "amount": 10
-    }
-  ],
-  "products": [
-    {
-      "id": 1,
-      "title": "Tênis de Caminhada Leve e muito Confortável Confortável",
-      "price": 179.9,
-      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis1.jpg"
-    },
-    {
-      "id": 2,
-      "title": "Tênis VR Caminhada Confortável Detalhes Couro Masculino",
-      "price": 139.9,
-      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis2.jpg"
-    },
-    {
-      "id": 3,
-      "title": "Tênis Adidas Duramo Lite 2.0",
-      "price": 219.9,
-      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis3.jpg"
-    },
-    {
-      "id": 5,
-      "title": "Tênis VR Caminhada Confortável Detalhes Couro Masculino",
-      "price": 139.9,
-      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis2.jpg"
-    },
-    {
-      "id": 6,
-      "title": "Tênis Adidas Duramo Lite 2.0",
-      "price": 219.9,
-      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis3.jpg"
-    },
-    {
-      "id": 4,
-      "title": "Tênis de Caminhada Leve Confortável",
-      "price": 179.9,
-      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis1.jpg"
-    }
-  ]
+    "stock": [
+        {
+            "id": 1,
+            "amount": 3
+        },
+        {
+            "id": 2,
+            "amount": 5
+        },
+        {
+            "id": 3,
+            "amount": 2
+        },
+        {
+            "id": 4,
+            "amount": 1
+        },
+        {
+            "id": 5,
+            "amount": 5
+        },
+        {
+            "id": 6,
+            "amount": 10
+        },
+        {
+            "id": 7,
+            "amount": 11
+        },
+        {
+            "id": 8,
+            "amount": 9
+        },
+        {
+            "id": 9,
+            "amount": 2
+        },
+        {
+            "id": 10,
+            "amount": 2
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "title": "Tênis de Caminhada Leve e muito Confortável Confortável",
+            "price": 179.9,
+            "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis1.jpg"
+        },
+        {
+            "id": 2,
+            "title": "Tênis VR Caminhada Confortável Detalhes Couro Masculino",
+            "price": 139.9,
+            "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis2.jpg"
+        },
+        {
+            "id": 3,
+            "title": "Tênis Adidas Duramo Lite 2.0",
+            "price": 219.9,
+            "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis3.jpg"
+        },
+        {
+            "id": 5,
+            "title": "Tênis VR Caminhada Confortável Detalhes Couro Masculino",
+            "price": 139.9,
+            "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis2.jpg"
+        },
+        {
+            "id": 6,
+            "title": "Tênis Adidas Duramo Lite 2.0",
+            "price": 219.9,
+            "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis3.jpg"
+        },
+        {
+            "id": 4,
+            "title": "Tênis de Caminhada Leve Confortável",
+            "price": 179.9,
+            "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis1.jpg"
+        },
+        {
+            "id": 7,
+            "title": "Chinelo Kenner Kivah Neo Masculino - Preto+Azul",
+            "price": 210,
+            "image": "https://static.netshoes.com.br/produtos/chinelo-kenner-kivah-neo-masculino/18/E20-0949-118/E20-0949-118_zoom1.jpg?ts=1635764442&?ims=544xhttps://static.netshoes.com.br/produtos/chinelo-kenner-kivah-neo-masculino/18/E20-0949-118/E20-0949-118_zoom1.jpg?ts=1635764442&?ims=1088x"
+        },
+        {
+            "id": 8,
+            "title": "Tênis Fila Cage Python Masculino - Preto+Marinho",
+            "price": 150,
+            "image": "https://static.netshoes.com.br/produtos/tenis-fila-cage-python-masculino/82/D29-0783-782/D29-0783-782_zoom1.jpg?ts=1567100154&"
+        },
+        {
+            "id": 9,
+            "title": "Calça Moletom Basicamente Jogger Feminina - Verde",
+            "price": 70,
+            "image": "https://static.netshoes.com.br/produtos/calca-moletom-basicamente-jogger-feminina/60/PIG-0344-060/PIG-0344-060_zoom1.jpg?ts=1647617479&"
+        },
+        {
+            "id": 10,
+            "title": "Tênis Treino + Relógio - Black - 35 - Caramelo+branco",
+            "price": 300,
+            "image": "https://static.netshoes.com.br/produtos/tenis-treino-academia-e-caminhada-movement-sv-relogio-black-35/49/MBS-0123-D49/MBS-0123-D49_zoom1.jpg?ts=1653904776&"
+        }
+    ]
 }

@@ -37,7 +37,6 @@ export default (_) => {
     }, []);
 
     const dispatch = useDispatch();
-    // TODO const navigate = useNavigate()
 
     const handleAddProduct = (id) => {
         dispatch(addToCartRequest(id, undefined));
