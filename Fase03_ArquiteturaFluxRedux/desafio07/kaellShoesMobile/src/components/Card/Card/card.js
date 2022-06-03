@@ -23,7 +23,7 @@ const Card = ({ srcImg, title, price, totByItem,id, handleAddProduct }) => {
                     <Icon name="cart" color={'#ececec'} size={30} />
                     <TextDescription>{totByItem[id] || 0}</TextDescription>
                 </BtnICon>
-                <BtnText handleAddProduct={(_) => handleAddProduct(id)}>
+                <BtnText callbackPress={(_) => handleAddProduct(id)}>
                     <TextDescription>Adicionar ao carrinho</TextDescription>
                 </BtnText>
             </GroupButton>

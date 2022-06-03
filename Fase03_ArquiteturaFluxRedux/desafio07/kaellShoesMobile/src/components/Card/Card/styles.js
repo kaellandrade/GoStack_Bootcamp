@@ -20,6 +20,9 @@ export const TitleProduct = styled.Text`
 `;
 export const Price = styled.Text`
     color: black;
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 10px;
 `;
 
 export const GroupButton = styled.View`
