@@ -41,7 +41,9 @@ Utilize ESLint, Prettier, EditorConfig, React Navigation e todas outras ferramen
 O layout do projeto está em anexo com esse desafio. O arquivo `.sketch` (no diretório `.github`) pode ser aberto no Figma, que é uma ferramenta de prototipação online.
 
 ### Resultado:
-...
+<img src="kaellShoesMobile/prints/home.png">
+<img src="kaellShoesMobile/prints/cart.png">
+<img src="kaellShoesMobile/prints/cartEmpty.png">
 
 ## 📅 Entrega
 
