@@ -1,13 +1,13 @@
 import {Alert} from 'react-native';
-import { call, put, all, takeLatest, select } from 'redux-saga/effects';
+import {call, put, all, takeLatest, select} from 'redux-saga/effects';
 import API from '../../../services/api';
-import { formatPrice } from '../../../util/format';
-import { addToCartSuccess, updateAmountSuccess } from '../../actions/cart';
-import { ADD_TO_CART_REQUEST, UPDATE_AMOUNT_REQUEST } from '../../actions';
+import {formatPrice} from '../../../util/format';
+import {addToCartSuccess, removeToCartSuccess, updateAmountSuccess} from '../../actions/cart';
+import {ADD_TO_CART_REQUEST, REMOVE_TO_CART_REQUEST, UPDATE_AMOUNT_REQUEST,REMOVE_UNIT_REQUEST} from '../../actions';
 
-function* addTocart({ payload }) {
-    const { id, navigate } = payload;
-    const productExists = yield select(({ cart }) =>
+function* addTocart({payload}) {
+    const {id} = payload;
+    const productExists = yield select(({cart}) =>
         cart.find((p) => p.id === id)
     );
 
@@ -34,11 +34,10 @@ function* addTocart({ payload }) {
         };
 
         yield put(addToCartSuccess(data));
-        // navigate('/cart');
     }
 }
 
-function* updateAmount({ payload }) {
+function* updateAmount({payload}) {
     if (payload.amount <= 0) return;
     const stock = yield call(API.get, `stock/${payload.id}`);
     const stockMount = stock.data.amount;
@@ -50,7 +49,32 @@ function* updateAmount({ payload }) {
     yield put(updateAmountSuccess(payload.id, payload.amount));
 }
 
+function* removeToCart({payload}) {
+    const {id} = payload;
+    yield put(removeToCartSuccess(id));
+}
+
+
+function* removeUnitToCart({payload}) {
+    const productExists = yield select(({cart}) =>
+        cart.find((p) => p.id === payload.id)
+    );
+
+    const {id} = payload;
+    if(productExists !== -1){
+        const currentAmount = productExists.amount - 1;
+        if(currentAmount === 0 ){
+            yield put(removeToCartSuccess(id));
+        }else{
+            yield put(updateAmountSuccess(id, productExists.amount - 1));
+        }
+    }
+
+}
+
 export default all([
+    takeLatest(REMOVE_TO_CART_REQUEST, removeToCart),
     takeLatest(ADD_TO_CART_REQUEST, addTocart),
     takeLatest(UPDATE_AMOUNT_REQUEST, updateAmount),
+    takeLatest(REMOVE_UNIT_REQUEST, removeUnitToCart)
 ]);
