@@ -55,6 +55,4 @@ Criar uma página de Ecommerce para calçados utilizando a arquiterura Flux / Re
 ## :pencil2: Comentário
 
 Aqui utilizei apenas componentes funcionais para estruturar toda a plicação. Além disso, utilizei bibliotecas
-interessantes tais como `axios`, `date-fns`, `styled-components` e muito mais. Aqui também foi utilizado
-o `localstorage` do navegador para armazear os dados, pois assim não perdemos nossos dados após atualizar a
-página. <a href='https://kaellandrade.github.io/GoStack_Bootcamp/'>Página do projeto.</a>
+interessantes tais como `axios`, `JSON WebServer`, `styled-components` e muito mais.
