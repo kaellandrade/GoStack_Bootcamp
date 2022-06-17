@@ -36,6 +36,9 @@
 
 Esse desafio **não precisa ser entregue** e não receberá correção, mas você pode ver o resultado do [código do desafio aqui](https://github.com/Rocketseat/bootcamp-gostack-desafio-08). Após concluir o desafio, adicionar esse código ao seu Github é uma boa forma de demonstrar seus conhecimentos para oportunidades futuras.
 
+## :heavy_check_mark: Resultado do projeto
+    - [:book: Kaell Shoes](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase03_ArquiteturaFluxRedux/desafio07)
+
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
