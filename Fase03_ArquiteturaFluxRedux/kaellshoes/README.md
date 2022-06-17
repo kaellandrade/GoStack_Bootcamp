@@ -14,30 +14,47 @@
 
 ## :rocket: Sobre o projeto
 
-Criar um página com React capaz de consumir alguns recursos da <a href='https://docs.github.com/pt/rest'>API do github</a>. A página poderá inserir repositórios, ver detalhes de um dado repositório inserido e também as issues abertas.
+Criar uma página de Ecommerce para calçados utilizando a arquiterura Flux / Redux com Saga.
 
 ## :heavy_check_mark: Resultado do projeto
 
+<div>
 <figure>
-  <img src="prints/pic1.png" alt="Add Repo" style="width:100%">
-  <figcaption>Tela para adicionar repositórios.</figcaption>
+    <img src="demos/1home.png">
+    <figcaption>Tela inicial dos produtos</figcaption>
 </figure>
 
 <figure>
-  <img src="prints/pic2.png" alt="Add Repo" style="width:100%">
-  <figcaption>Tela para os detalhes do repositório</figcaption>
+    <img src="demos/2home.png">
+    <figcaption>Tela inicial dos produtos</figcaption>
 </figure>
 
 <figure>
-  <img src="prints/pic3.png" alt="Add Repo" style="width:100%">
-  <figcaption>Paginação das issues.</figcaption>
+    <img src="demos/3home.png">
+    <figcaption>Produto excedeu o estoque disponível</figcaption>
 </figure>
 
 <figure>
-  <img src="prints/pic4.png" alt="Add Repo" style="width:100%">
-  <figcaption>Tela de Loading da aplicação.</figcaption>
+    <img src="demos/4home.png">
+    <figcaption>Contablilizando no carrinho</figcaption>
 </figure>
+
+<figure>
+    <img src="demos/5carro.png">
+    <figcaption>Carrinho</figcaption>
+</figure>
+
+<figure>
+    <img src="demos/6carro.png">
+    <figcaption>Alterando itens</figcaption>
+</figure>
+
+
+</div>
 
 ## :pencil2: Comentário
 
-Aqui utilizei apenas componentes funcionais para estruturar toda a plicação. Além disso, utilizei bibliotecas interessantes tais como `axios`, `date-fns`, `styled-components` e muito mais. Aqui também foi utilizado o `localstorage` do navegador para armazear os dados, pois assim não perdemos nossos dados após atualizar a página. <a href='https://kaellandrade.github.io/GoStack_Bootcamp/'>Página do projeto.</a>
+Aqui utilizei apenas componentes funcionais para estruturar toda a plicação. Além disso, utilizei bibliotecas
+interessantes tais como `axios`, `date-fns`, `styled-components` e muito mais. Aqui também foi utilizado
+o `localstorage` do navegador para armazear os dados, pois assim não perdemos nossos dados após atualizar a
+página. <a href='https://kaellandrade.github.io/GoStack_Bootcamp/'>Página do projeto.</a>
