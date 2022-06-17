@@ -3,7 +3,7 @@
 </h1>
 
 <h3 align="center">
-  Projeto: Usando API do GitHub (React Js)
+  Projeto: Ecommerce Calçados Kaell Shoes
 </h3>
 
 <p align="center">
