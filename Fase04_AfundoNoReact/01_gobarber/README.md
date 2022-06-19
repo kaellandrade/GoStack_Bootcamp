@@ -3,7 +3,7 @@
 </h1>
 
 <h3 align="center">
-  Continuação do Projeto GoBarber: Aplicação de agendamento de serviços para uma barbearia.
+  Projeto GoBarber WEB: Aplicação de agendamento de serviços para uma barbearia.
 </h3>
 
 <p align="center">
