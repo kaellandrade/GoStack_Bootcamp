@@ -84,7 +84,7 @@ class AppointmentController {
             return res.status(400).json({ error: 'Date is not avalid' });
         }
 
-        //Capturando apenas o inicio da hora e convertendo para Objeto Js
+        // Capturando apenas o inicio da hora e convertendo para Objeto Js
         const hourStart = startOfHour(parseISO(date));
         /**
          * Check for past dates
@@ -159,7 +159,7 @@ class AppointmentController {
         await Queue.add(CancellationMail.key, {
             appointment,
         });
-        res.json(appointment);
+        return res.json(appointment);
     }
 }
 export default new AppointmentController();

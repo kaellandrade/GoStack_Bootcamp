@@ -16,7 +16,7 @@ const routes = new Router();
 const upload = multer(multerConfig);
 
 /**
- * Todas minhas rotas esetarão aqui.
+ * Todas minhas rotas estão aqui.
  */
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
