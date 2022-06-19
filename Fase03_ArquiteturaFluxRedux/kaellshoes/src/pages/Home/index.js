@@ -36,15 +36,7 @@ const renderProducts = (products, totByItem) => {
 };
 
 function Home() {
-    const totByItem = useSelector(({ cart }) => cart).reduce(
-        (amount, product) => {
-            amount[product.id] = product.amount;
-            return amount;
-        },
-        {}
-    );
     const [products, setProducts] = useState([]);
-
     const getProducts = async () => {
         try {
             const response = await API.get('products');
@@ -59,6 +51,14 @@ function Home() {
         }
     };
 
+    const totByItem = useSelector(({ cart }) => cart).reduce(
+        (amount, product) => {
+            amount[product.id] = product.amount;
+            return amount;
+        },
+        {}
+    );
+    
     useEffect(() => {
         getProducts();
     }, []);

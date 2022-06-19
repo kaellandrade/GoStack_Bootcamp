@@ -70,7 +70,7 @@ function Cart() {
                 <thead>
                     <tr>
                         <th />
-                        <th>PRODUTDO</th>
+                        <th>PRODUTO</th>
                         <th>QTD</th>
                         <th>QTDSUBTOTAL</th>
                         <th />
