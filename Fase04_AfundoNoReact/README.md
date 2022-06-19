@@ -4,8 +4,7 @@
 </h2>
 
 ### Projeto
-
-- [ :haircut_man: GoBarber]()
+- [ :barber: Projeto GoBarber](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase01_DominandoNodeJS/02gobarber)
 
 ### Desafios
 
