@@ -4,6 +4,8 @@
 </h2>
 
 ### Projeto
+Aqui iremos dar continuação a aplicação GoBaber que foi iniciada no módulo de backEnd Node.js.
+
 - [ :barber: Projeto GoBarber](https://github.com/kaellandrade/GoStack_Bootcamp/tree/main/Fase01_DominandoNodeJS/02gobarber)
 
 ### Desafios
