@@ -1,7 +1,18 @@
+import React from 'react';
+import './config/ReactotronConfig';
+import {
+    BrowserRouter as Router,
+} from "react-router-dom";
+import Rotas from './routes/index';
+import GlobalStyle from "./styles/globals";
+
 function App() {
 	return (
-		<h1>Olá, mundo!</h1>
-	);
+        <Router>
+            <Rotas/>
+			<GlobalStyle/>
+        </Router>
+    );
 }
 
 export default App;
