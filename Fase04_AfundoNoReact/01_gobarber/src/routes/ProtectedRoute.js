@@ -1,4 +1,3 @@
-import React from 'react';
 import {Navigate, useLocation} from "react-router-dom";
 import DefaultLayout from '../pages/_layouts/default';
 import AuthLayout from '../pages/_layouts/auth';
