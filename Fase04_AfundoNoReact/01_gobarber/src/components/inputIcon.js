@@ -12,21 +12,23 @@ import {InputIconContainer} from "./styles";
  */
 const InputIcon = ({inputType, inputPlaceholder, CompIcon, name}) => (
 	<InputIconContainer>
-		{CompIcon ? <CompIcon/> : null}
+		<div>
+			{CompIcon ? <CompIcon/> : null}
+		</div>
 		<Input name={name} type={inputType} placeholder={inputPlaceholder}/>
 	</InputIconContainer>
 );
 
 InputIcon.defaultProps = {
-	inputType:'text',
-	CompIcon:null
+	inputType: 'text',
+	CompIcon: null
 };
 
 InputIcon.propTypes = {
 	inputType: PropTypes.string.isRequired,
 	inputPlaceholder: PropTypes.string.isRequired,
 	CompIcon: PropTypes.func,
-	name:PropTypes.string
+	name: PropTypes.string
 
 };
 

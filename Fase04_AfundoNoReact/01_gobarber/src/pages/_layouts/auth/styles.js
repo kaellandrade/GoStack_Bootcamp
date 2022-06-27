@@ -21,17 +21,18 @@ const Wrapper = styled.div`
   }
 
   input {
-	background-color: transparent;
+    background-color: transparent;
     border: 0;
     height: 44px;
-    padding: 0 15px;
+    padding-left: 15px;
     color: #FFFF;
-	width: 100%;
 
     &::placeholder {
       color: rgba(255, 255, 255, 0.7);
     }
 
+    width: 100%;
+	
   }
 
   button {
@@ -43,21 +44,22 @@ const Wrapper = styled.div`
     border: 0;
     border-radius: 4px;
     font-size: 16px;
-	transition: background 0.2s;
-	&:hover{
-	  background: ${darken(0.03,'#3b9eff')};
-	}
+    transition: background 0.2s;
+
+    &:hover {
+      background: ${darken(0.03, '#3b9eff')};
+    }
   }
-  
-  a{
-	color: #FFF;
-	margin-top: 15px;
-	font-size: 16px;
-	opacity: 0.8;
-	
-	&:hover{
-	  opacity: 1;
-	}
+
+  a {
+    color: #FFF;
+    margin-top: 15px;
+    font-size: 16px;
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 `;
 

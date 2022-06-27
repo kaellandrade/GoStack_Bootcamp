@@ -29,10 +29,11 @@
     "no-useless-constructor": "off",
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
-    "no-console": 1,
+    "no-console": "off",
     "no-param-reassign": "off",
     "react-hooks/rules-of-hooks": 2,
-    "react-hooks/exhaustive-deps": 1
+    "react-hooks/exhaustive-deps": 1,
+    "default-param-last": 0
   },
   "plugins": [
     "prettier",
