@@ -26,8 +26,8 @@ const SignIn = () => {
 	}
 
 	const schema = Yup.object().shape({
-		email: Yup.string().email('E-mail inválido').required('E-mail obrigatório'),
-		password: Yup.string().required('A senha e obrigatória')
+		email: Yup.string().email('E-mail inválido!').required('E-mail obrigatório!'),
+		password: Yup.string().required('A senha e obrigatória!')
 	});
 
 	return (

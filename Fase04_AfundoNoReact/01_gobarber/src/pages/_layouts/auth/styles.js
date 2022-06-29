@@ -21,12 +21,12 @@ const Wrapper = styled.div`
   }
 
   input {
-    background-color: transparent;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.1);
     border: 0;
     height: 44px;
-    padding-left: 15px;
+    padding-left: 32px;
     color: #FFFF;
-
     &::placeholder {
       color: rgba(255, 255, 255, 0.7);
     }

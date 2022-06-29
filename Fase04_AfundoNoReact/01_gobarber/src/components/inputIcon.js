@@ -12,9 +12,7 @@ import {InputIconContainer} from "./styles";
  */
 const InputIcon = ({inputType, inputPlaceholder, CompIcon, name}) => (
 	<InputIconContainer>
-		<div>
-			{CompIcon ? <CompIcon/> : null}
-		</div>
+		{CompIcon ? <CompIcon/> : null}
 		<Input name={name} type={inputType} placeholder={inputPlaceholder}/>
 	</InputIconContainer>
 );

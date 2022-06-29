@@ -15,7 +15,7 @@ export default function ProtectedRoute({children, isPrivate}) {
 
 	const {pathname} = useLocation();
 
-	// Se Usuário não estiver logado e a rota ffor privada.
+	// Se Usuário não estiver logado e a rota for privada.
 	if (!signed && isPrivate) {
 		return <Navigate to="/" replace/>
 	}
