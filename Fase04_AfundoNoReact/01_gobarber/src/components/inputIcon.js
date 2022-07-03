@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import {Input} from '@rocketseat/unform';
+import {useState} from "react";
 import {InputIconContainer} from "./styles";
 
 /**
@@ -10,12 +11,17 @@ import {InputIconContainer} from "./styles";
  * @returns {JSX.Element}
  * @constructor
  */
-const InputIcon = ({inputType, inputPlaceholder, CompIcon, name}) => (
-	<InputIconContainer>
-		{CompIcon ? <CompIcon/> : null}
-		<Input name={name} type={inputType} placeholder={inputPlaceholder}/>
-	</InputIconContainer>
-);
+const InputIcon = ({inputType, inputPlaceholder, CompIcon, name, value}) => {
+	const INITIAL_STATE = value || '';
+	const [valor,setValue] = useState(INITIAL_STATE);
+	return (
+		<InputIconContainer>
+			{CompIcon ? <CompIcon/> : null}
+			<Input onChange={(event) => setValue(event.target.value)} value={valor} name={name} type={inputType}
+				   placeholder={inputPlaceholder}/>
+		</InputIconContainer>
+	);
+}
 
 InputIcon.defaultProps = {
 	inputType: 'text',

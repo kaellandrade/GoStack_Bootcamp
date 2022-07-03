@@ -57,7 +57,7 @@ class UserController {
     const {email, oldPassword} = req.body;
     const user = await User.findByPk(req.userId);
     if (email !== user.email) {
-      // Deseja alterar o email
+      // Deseja alterar o e-mail
       const userExists = await User.findOne({where: {email}});
       if (userExisessionconsts) {
         return res.status(400).json({error: 'User alread exists.'});
