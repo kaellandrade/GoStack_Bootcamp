@@ -1,6 +1,6 @@
 import {
 	Route,
-	Routes
+	Routes,
 } from "react-router-dom";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
@@ -47,6 +47,5 @@ const Rotas = () => (
 
 	</Routes>
 
-);
-
+)
 export default Rotas;
