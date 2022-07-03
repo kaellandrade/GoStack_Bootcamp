@@ -20,7 +20,7 @@ class UserController {
     }
 
     try {
-      //Verifica se o email já foi cadastrado.
+      //Verifica se o e-mail já foi cadastrado.
       const userExists = await User.findOne({
         where: {email: req.body.email},
       });

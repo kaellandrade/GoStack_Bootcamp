@@ -1,13 +1,15 @@
 import {Fragment} from 'react';
 import * as Yup from 'yup';
 import {MdMail, MdLock} from 'react-icons/md';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {Form} from '@rocketseat/unform';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import Spinner from 'react-bootstrap/Spinner';
+import Button from 'react-bootstrap/Button';
 import Logo from '../../assets/logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import InputIcon from "../../components/inputIcon";
 import {signInRequest} from "../../store/modules/auth/actions";
-
 
 /**
  * Tela de login da aplicação.
@@ -16,7 +18,9 @@ import {signInRequest} from "../../store/modules/auth/actions";
  * @constructor
  */
 const SignIn = () => {
+	const {state} = useLocation(); // Caso o usuário venha da página de cadastro.
 	const dispatch = useDispatch();
+	const {loading} = useSelector(({auth}) => auth);
 	/**
 	 * Realiza o submit dos dados.
 	 * @param data
@@ -34,10 +38,20 @@ const SignIn = () => {
 		<Fragment>
 			<img src={Logo} alt="GoBarber"/>
 			<Form schema={schema} onSubmit={handleSubmit}>
-				<InputIcon name='email' CompIcon={MdMail} inputPlaceholder='Seu email' inputType='email'/>
+				<InputIcon value={state ? state.email : ''} name='email' CompIcon={MdMail}
+						   inputPlaceholder='Seu email'
+						   inputType='email'/>
 				<InputIcon name='password' CompIcon={MdLock} inputPlaceholder='Sua senha' inputType='password'/>
 
-				<button type="submit">Acessar</button>
+				<Button type="submit" disabled={loading}>
+					{loading ?
+						<Fragment>
+							<Spinner variant='light' size="sm" animation="grow"/>
+							<span> Carregando...</span>
+						</Fragment>
+						:
+						'Acessar'}
+				</Button>
 				<Link to="/register">Criar conta gratuita</Link>
 			</Form>
 		</Fragment>
