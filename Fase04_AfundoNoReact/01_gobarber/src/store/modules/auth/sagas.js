@@ -8,7 +8,7 @@ import {signFailure, signInSuccess, signUpFailure, signUpSuccess} from "./action
  * @param payload
  * @returns {Generator<*, void, *>}
  */
-export function* signIn({payload}) {
+function* signIn({payload}) {
 	try {
 		const {email, password} = payload;
 		const response = yield call(api.post, 'sessions', {
@@ -30,7 +30,7 @@ export function* signIn({payload}) {
 			yield put(signFailure());
 			return;
 		}
-		toast.success('Login feito com sucesso.', {
+		toast.success(`Seja, bem vindo ${user.name}!`, {
 			position: "bottom-center",
 			autoClose: 5000,
 			hideProgressBar: false,
@@ -41,7 +41,7 @@ export function* signIn({payload}) {
 		});
 		yield  put(signInSuccess(token, user));
 	} catch (error) {
-		toast.error('Falha na autenticação.Verifique seus dados.', {
+		toast.error('Falha na autenticação.Verifique seus dados!', {
 			position: "bottom-center",
 			autoClose: 5000,
 			hideProgressBar: false,
@@ -60,14 +60,14 @@ export function* signIn({payload}) {
  * @param payload
  * @returns {Generator<*, void, *>}
  */
-export function* signUp({payload}) {
+function* signUp({payload}) {
 	try {
 		const {name, email, password, navigate} = payload;
 		const {data} = yield call(api.post, 'users', {
 			name,
 			password,
 			email,
-			provider:true
+			provider: true
 		});
 
 
@@ -84,7 +84,7 @@ export function* signUp({payload}) {
 		yield put(signUpSuccess());
 		navigate('/', {
 			state: {
-				email:data.email
+				email: data.email
 			}
 		});
 	} catch (error) {
@@ -102,7 +102,20 @@ export function* signUp({payload}) {
 
 }
 
+export function setToken({payload}) {
+	console.tron.log(payload);
+	if (!payload) return;
+
+	const {token} = payload.auth;
+
+	if (token) {
+		api.defaults.headers.Authorization = `Bearer ${payload.auth.token}`;
+	}
+
+}
+
 export default all([
+	takeLatest('persist/REHYDRATE', setToken),
 	takeLatest('@auth/SIGN_IN_REQUEST', signIn),
 	takeLatest('@auth/SIGN_UP_REQUEST', signUp)
 ]);
