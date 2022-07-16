@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import {Wrapper} from './styles';
+import Header from "../../../components/Header";
 
 /**
  * Layout autenticação
@@ -9,6 +10,7 @@ import {Wrapper} from './styles';
  */
 const DafaulLayout = ({children}) => (
 		<Wrapper>
+			<Header/>
 			{children}
 		</Wrapper>
 	);
