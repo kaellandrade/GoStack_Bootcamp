@@ -1,45 +1,76 @@
 import {MdNotifications} from 'react-icons/md'
+import {useEffect, useState} from "react";
+import {parseISO, formatDistance} from 'date-fns';
+import pt from 'date-fns/locale/pt';
 import {Container, Badge, Scroll, Notification, NotificationsList} from './styles';
+import api from "../../services/api";
 
-const Index = () => (
-	<Container>
-		<Badge hasUnRead={true}>
-			<MdNotifications color="#7159c1" size={20}/>
-		</Badge>
-		<NotificationsList>
-			<Scroll>
-				<Notification unread>
-					<p>Você possui um novo agendamento para hoje.</p>
-					<time>há 2 dias</time>
-					<button type="button">Marcar como lida</button>
-				</Notification>
+const loadNotifications = async setNotification => {
+	const response = await api.get('notifications');
 
-				<Notification>
-					<p>Você possui um novo agendamento para hoje.</p>
-					<time>há 2 dias</time>
-					<button type="button">Marcar como lida</button>
-				</Notification>
+	const data = response.data.map(notification => ({
+		...notification,
+		timeDistance: formatDistance(
+			parseISO(notification.createdAt),
+			new Date(),
+			{addSuffix:true, locale:pt}
+		)
+	}))
+	setNotification(data);
+}
+const Index = () => {
+	const [visible, setVisable] = useState(true);
+	const [notifications, setNotification] = useState(true);
 
-				<Notification>
-					<p>Você possui um novo agendamento para hoje.</p>
-					<time>há 2 dias</time>
-					<button type="button">Marcar como lida</button>
-				</Notification>
+	useEffect(()=>{
+		loadNotifications(setNotification);
+	},[]);
 
-				<Notification>
-					<p>Você possui um novo agendamento para hoje.</p>
-					<time>há 2 dias</time>
-					<button type="button">Marcar como lida</button>
-				</Notification>
 
-				<Notification>
-					<p>Você possui um novo agendamento para hoje.</p>
-					<time>há 2 dias</time>
-					<button type="button">Marcar como lida</button>
-				</Notification>
-			</Scroll>
-		</NotificationsList>
-	</Container>
-);
+	const toggleVisable = _ => {
+		setVisable(!visible);
+	}
+
+	return (
+		<Container>
+			<Badge onClick={toggleVisable} hasUnRead={true}>
+				<MdNotifications color="#7159c1" size={20}/>
+			</Badge>
+			<NotificationsList visible ={visible}>
+				<Scroll>
+					<Notification unread>
+						<p>Você possui um novo agendamento para hoje.</p>
+						<time>há 2 dias</time>
+						<button type="button">Marcar como lida</button>
+					</Notification>
+
+					<Notification>
+						<p>Você possui um novo agendamento para hoje.</p>
+						<time>há 2 dias</time>
+						<button type="button">Marcar como lida</button>
+					</Notification>
+
+					<Notification>
+						<p>Você possui um novo agendamento para hoje.</p>
+						<time>há 2 dias</time>
+						<button type="button">Marcar como lida</button>
+					</Notification>
+
+					<Notification>
+						<p>Você possui um novo agendamento para hoje.</p>
+						<time>há 2 dias</time>
+						<button type="button">Marcar como lida</button>
+					</Notification>
+
+					<Notification>
+						<p>Você possui um novo agendamento para hoje.</p>
+						<time>há 2 dias</time>
+						<button type="button">Marcar como lida</button>
+					</Notification>
+				</Scroll>
+			</NotificationsList>
+		</Container>
+	);
+}
 
 export default Index;

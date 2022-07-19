@@ -3,11 +3,12 @@ import {lighten} from 'polished'
 import PerfectScrollBar from 'react-perfect-scrollbar';
 
 export const Scroll = styled(PerfectScrollBar)`
-max-height: 260px;
+  max-height: 260px;
   padding: 5px 15px;
 `;
 
 export const NotificationsList = styled.div`
+  transition: linear 1s linear;
   position: absolute;
   width: 260px;
   left: calc(50% - 130px);
@@ -15,6 +16,8 @@ export const NotificationsList = styled.div`
   background: rgb(0, 0, 0, 0.6);
   border-radius: 4px;
   padding: 15px 5px;
+  display: ${({visible}) => visible ? 'block': 'none'};
+  };
 
   &::before {
     content: '';
@@ -58,15 +61,15 @@ export const Notification = styled.div`
   }
 
   ${props => props.unread && css`
-	&::after{
-	  content: '';
-	  display: block;
-	  margin-left: 5px;
-	  width: 8px;
-	  height: 8px;
-	  background: #ff892e;
-	  border-radius: 50%;
-	}
+    &::after {
+      content: '';
+      display: block;
+      margin-left: 5px;
+      width: 8px;
+      height: 8px;
+      background: #ff892e;
+      border-radius: 50%;
+    }
   `}
 `;
 
