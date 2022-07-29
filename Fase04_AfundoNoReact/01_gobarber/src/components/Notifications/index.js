@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {parseISO, formatDistance} from 'date-fns';
 import pt from 'date-fns/locale/pt';
+import {useSelector} from "react-redux";
 import {Container, Badge, NumberNotification, Scroll, Notification, NotificationsList, AnimationBell} from './styles';
 import api from "../../services/api";
 
@@ -8,7 +9,7 @@ const countUnread = notifications => notifications.reduce((acc, {read}) => !read
 
 
 const Index = () => {
-	const [visible, setVisable] = useState(true);
+	const [visible, setVisable] = useState(false);
 	const [notifications, setNotification] = useState([]);
 	const [totalNotificationUnread, setTotal] = useState(0);
 

@@ -1,4 +1,5 @@
 import produce from 'immer';
+import api from "../../../services/api";
 
 const INITIAL_STATE = {
 	token: null,
@@ -15,6 +16,7 @@ const auth = (state = INITIAL_STATE, action) => produce(state, draft => {
 			case '@auth/SIGN_IN_SUCCESS': {
 				draft.token = action.payload.token;
 				draft.signed = true;
+				api.defaults.headers.Authorization = `Bearer ${action.payload.token}`;
 				break;
 			}
 			case '@auth/SIGN_FAILURE':{

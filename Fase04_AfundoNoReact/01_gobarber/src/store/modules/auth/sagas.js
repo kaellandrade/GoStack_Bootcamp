@@ -103,7 +103,6 @@ function* signUp({payload}) {
 }
 
 export function setToken({payload}) {
-	console.tron.log(payload);
 	if (!payload) return;
 
 	const {token} = payload.auth;
