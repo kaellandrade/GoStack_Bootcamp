@@ -88,17 +88,14 @@ export const AnimationBell = styled(MdNotifications)`
     animation-timing-function: linear;
   `}`;
 export const NumberNotification = styled.span`
-  border-radius: 30px;
-  padding: 0px 3px 0;
+  border-radius: 6px;
+  padding: 1px 6px 1px;
   position: absolute;
   right: -12px;
   top: -5px;
-  //width: 8px;
-  //height: 8px;
   background: #ff892e;
   z-index: 1;
   color: #ffffff;
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
   font-weight: bold;
 `;
 

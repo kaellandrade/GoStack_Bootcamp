@@ -20,20 +20,7 @@ const Wrapper = styled.div`
     margin-top: 30px;
   }
 
-  input {
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0.1);
-    border: 0;
-    height: 44px;
-    padding-left: 32px;
-    color: #FFFF;
-    &::placeholder {
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    width: 100%;
-	
-  }
+  
 
   button {
     margin: 5px 0 0;

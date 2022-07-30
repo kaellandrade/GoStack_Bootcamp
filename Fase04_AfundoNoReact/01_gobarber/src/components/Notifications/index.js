@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import {parseISO, formatDistance} from 'date-fns';
 import pt from 'date-fns/locale/pt';
-import {useSelector} from "react-redux";
 import {Container, Badge, NumberNotification, Scroll, Notification, NotificationsList, AnimationBell} from './styles';
 import api from "../../services/api";
 
