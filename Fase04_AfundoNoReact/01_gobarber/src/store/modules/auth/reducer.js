@@ -15,6 +15,7 @@ const auth = (state = INITIAL_STATE, action) => produce(state, draft => {
 			}
 			case '@auth/SIGN_IN_SUCCESS': {
 				draft.token = action.payload.token;
+				draft.loading = false;
 				draft.signed = true;
 				api.defaults.headers.Authorization = `Bearer ${action.payload.token}`;
 				break;

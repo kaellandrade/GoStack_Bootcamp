@@ -2,6 +2,22 @@ import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
 import {darken} from "polished";
 
+export const BtnUpdate = styled(Button)`
+  margin: 5px 0 0;
+  height: 44px;
+  background: #3b9eff;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: background 0.2s;
+
+  &:hover {
+    background: ${darken(0.08, '#3b9eff')};
+  }
+
+`;
+
 export const Container = styled.div`
   max-width: 680px;
   margin: 50px auto;
@@ -11,24 +27,11 @@ export const Container = styled.div`
     flex-direction: column;
     //margin: 30px;
 
-    button {
-      margin: 5px 0 0;
-      height: 44px;
-      background: #3b9eff;
-      color: #fff;
-      border: 0;
-      border-radius: 4px;
-      font-size: 16px;
-      transition: background 0.2s;
 
-      &:hover {
-        background: ${darken(0.08, '#3b9eff')};
-      }
-    }
   }
 
   > button {
-	width: 100%;
+    width: 100%;
     margin: 10px 0 0;
     height: 44px;
     background: #f64c75;

@@ -1,19 +1,30 @@
-import {Form, Input} from '@rocketseat/unform';
-import {MdAccountCircle, MdLock, MdMail,MdPassword,MdLockOutline,MdOutlineSend,MdLogout} from "react-icons/md";
-import {useSelector} from "react-redux";
-import {Container} from './styles';
+import {Fragment} from "react";
+import {Form} from '@rocketseat/unform';
+import {MdAccountCircle, MdLock, MdMail, MdPassword, MdLockOutline, MdOutlineSend, MdLogout} from "react-icons/md";
+import {useDispatch, useSelector} from "react-redux";
+import Spinner from "react-bootstrap/Spinner";
+import {BtnUpdate, Container} from './styles';
 import InputIcon from "../../components/inputIcon";
+import {updateProfileReques} from "../../store/modules/users/actions";
+
 /**
  * Página do perfil do usuário.
  * @returns {JSX.Element}
  * @constructor
  */
 const Profile = () => {
-	const {email, name} = useSelector(({user})=>user.profile);
+	const {email, name} = useSelector(({user}) => user.profile);
+	const dispatch = useDispatch();
+	const {loading} = useSelector(({user}) => user);
+
+
+	const handleSubmit = (data) => {
+		dispatch(updateProfileReques(data));
+	}
 
 	return (
 		<Container>
-			<Form>
+			<Form onSubmit={handleSubmit}>
 				<InputIcon value={name} name='name' CompIcon={MdAccountCircle}
 						   inputPlaceholder='Nome completo'
 						   inputType='text'/>
@@ -34,9 +45,19 @@ const Profile = () => {
 
 				<InputIcon inputType="password" name="confirmPassword" inputPlaceholder="Confirme sua senha"
 						   CompIcon={MdPassword}/>
-				<button type="submit">
-					Atualizar Perfil <MdOutlineSend size={25}/>
-				</button>
+
+				<BtnUpdate type="submit" disabled={loading}>
+					{loading ?
+						<Fragment>
+							<Spinner variant='light' size="sm" animation="grow"/>
+							<span> Atualizando...</span>
+						</Fragment>
+						:
+						<Fragment>
+							Atualizar Perfil <MdOutlineSend size={25}/>
+						</Fragment>
+					}
+				</BtnUpdate>
 			</Form>
 			<button type="submit">
 				Sair do GoBarber <MdLogout size={25}/>

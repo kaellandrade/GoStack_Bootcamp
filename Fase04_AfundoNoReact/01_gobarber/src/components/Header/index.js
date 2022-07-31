@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 import {Container, Content, Profile} from './styles';
 import logo from '../../assets/headerPurple.svg'
 import Avatar from '../../assets/avatar.jpeg'
@@ -10,6 +11,7 @@ import Notifications from "../Notifications";
  * @constructor
  */
 function Header() {
+	const {name} = useSelector(({user}) => user.profile);
 	return (
 		<Container>
 			<Content>
@@ -22,7 +24,7 @@ function Header() {
 					<Notifications/>
 					<Profile>
 						<div>
-							<strong>Micael Andrade</strong>
+							<strong>{name}</strong>
 							<Link to="/profile">Meu Perfil</Link>
 						</div>
 						<img src={Avatar} alt="Imagem perfil"/>
