@@ -24,6 +24,10 @@ const user = (state = INITIAL_STATE, action) => produce(state, draft => {
 			draft.loading = true;
 			break
 		}
+		case '@auth/SIGN_OUT' : {
+			draft.profile = null;
+			break;
+		}
 		default:
 	}
 });

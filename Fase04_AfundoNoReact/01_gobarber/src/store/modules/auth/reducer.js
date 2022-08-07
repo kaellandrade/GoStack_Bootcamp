@@ -24,6 +24,11 @@ const auth = (state = INITIAL_STATE, action) => produce(state, draft => {
 				draft.loading = false;
 				break;
 			}
+			case '@auth/SIGN_OUT' : {
+				draft.token = null;
+				draft.signed = false;
+				break;
+			}
 
 			default:
 		}

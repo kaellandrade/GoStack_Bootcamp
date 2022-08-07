@@ -4,17 +4,17 @@ import api from "../../../services/api";
 import {updateProfileFailure, updateProfileSuccess} from "./actions";
 
 /**
- * Atualiza o perfil do usário.
+ * Atualiza o perfil do usuário.
  * @param payload
  * @returns {Generator<*, void, *>}
  */
 export function* updateProfile({payload}) {
 	try {
 
-	const {name, email, ...rest} = payload.data;
+	const {name, email, avatar_id, ...rest} = payload.data;
 
 	const profile = {
-		name, email,
+		name, email, avatar_id,
 		...(rest.oldPassword ? rest : {})
 	}
 

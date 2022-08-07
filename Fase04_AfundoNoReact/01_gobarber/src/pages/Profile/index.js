@@ -6,7 +6,8 @@ import Spinner from "react-bootstrap/Spinner";
 import {BtnUpdate, Container} from './styles';
 import InputIcon from "../../components/inputIcon";
 import {updateProfileReques} from "../../store/modules/users/actions";
-
+import {AvatarInput} from './AvataraInput/index';
+import {signOut} from "../../store/modules/auth/actions";
 /**
  * Página do perfil do usuário.
  * @returns {JSX.Element}
@@ -15,16 +16,21 @@ import {updateProfileReques} from "../../store/modules/users/actions";
 const Profile = () => {
 	const {email, name} = useSelector(({user}) => user.profile);
 	const dispatch = useDispatch();
-	const {loading} = useSelector(({user}) => user);
+	const {profile} = useSelector(({user}) => user);
 
 
 	const handleSubmit = (data) => {
 		dispatch(updateProfileReques(data));
 	}
 
+	const handleSingout = () => {
+		dispatch(signOut())
+	}
+
 	return (
 		<Container>
-			<Form onSubmit={handleSubmit}>
+			<Form initialData={profile} onSubmit={handleSubmit}>
+				<AvatarInput name="avatar_id"/>
 				<InputIcon value={name} name='name' CompIcon={MdAccountCircle}
 						   inputPlaceholder='Nome completo'
 						   inputType='text'/>
@@ -46,8 +52,8 @@ const Profile = () => {
 				<InputIcon inputType="password" name="confirmPassword" inputPlaceholder="Confirme sua senha"
 						   CompIcon={MdPassword}/>
 
-				<BtnUpdate type="submit" disabled={loading}>
-					{loading ?
+				<BtnUpdate type="submit" disabled={profile.loading}>
+					{profile.loading ?
 						<Fragment>
 							<Spinner variant='light' size="sm" animation="grow"/>
 							<span> Atualizando...</span>
@@ -59,7 +65,7 @@ const Profile = () => {
 					}
 				</BtnUpdate>
 			</Form>
-			<button type="submit">
+			<button onClick={handleSingout} type="submit">
 				Sair do GoBarber <MdLogout size={25}/>
 			</button>
 		</Container>
