@@ -32,26 +32,39 @@ const Container = styled.header`
   }
 `;
 const Time = styled.li`
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.49);
+  cursor: pointer;
   padding: 20px;
   border-radius: 4px;
   background: #fff;
   font-size: 20px;
   font-weight: normal;
-  
+  border-left: 5px solid ${props => {
+    let color = '#9ea7ad';
+    if (props.opened && !props.past) {
+      color = '#56f000';
+    }
+    if (!props.available) {
+      color = '#ff3838';
+    }
+    return color;
+  }
+  };
+
   opacity: ${props => props.past ? 0.6 : 1};
-  
-  
-  strong{
+
+
+  strong {
     display: flex;
-    color: ${props => props.available ? '#999':'#7159C1'};
+    color: ${props => props.available ? '#999' : '#7159C1'};
     font-size: 20px;
     font-weight: normal;
   }
-  
-  span{
+
+  span {
     display: block;
     margin-top: 3px;
-    color: ${props => props.available ? '#999':'#666'};
+    color: ${props => props.available ? '#999' : '#666'};
   }
 `;
 

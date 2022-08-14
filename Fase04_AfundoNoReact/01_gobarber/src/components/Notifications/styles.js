@@ -105,12 +105,13 @@ export const Scroll = styled(PerfectScrollBar)`
 `;
 
 export const NotificationsList = styled.div`
+  z-index: 1  ;
   transition: linear 1s linear;
   position: absolute;
   width: 260px;
   left: calc(50% - 130px);
   top: calc(100% + 30px);
-  background: rgb(0, 0, 0, 0.6);
+  background: rgb(0, 0, 0, 0.8);
   border-radius: 4px;
   padding: 15px 5px;
   display: ${({visible}) => visible ? 'block' : 'none'};
