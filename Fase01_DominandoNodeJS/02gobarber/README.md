@@ -6,18 +6,23 @@
 Aqui está todo o back-end por trás do projeto GoBarber.
 
 
-### Tecnologias e principais libs utilizadas
-- [X] Docker;
-- [X] Docker Compose;
-- [X] MongoDB;
-- [X] PostGreSQL;
+### Tecnologias; e principais libs utilizadas
+
+- [X] NodeJS;
+- [X] :whale:Docker;
+- [X] :whale:Docker Compose;
+- [X] :leaves:MongoDB;
+- [X] :elephant:PostGreSQL;
 - [X] Redis;
 - [X] Yarn;
 - [X] :key:JWT Token;
 - [X] Sequelize;
 - [X] Express;
-- [X] DateFNS;
+- [X] :date:DateFNS;
 - [X] [Entre Outras](https://github.com/kaellandrade/GoStack_Bootcamp/blob/main/Fase04_AfundoNoReact/01_gobarber/package.json)
+
+## Padrão de Projeto
+- MVC
 
 ### Telas do Projeto
   ...
