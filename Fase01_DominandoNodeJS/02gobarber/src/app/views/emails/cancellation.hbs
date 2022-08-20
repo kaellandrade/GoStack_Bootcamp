@@ -1,10 +1,39 @@
-<strong>Olá, {{provider}}</strong>
-<p>Houve um cancelamento de horário, confira os detalhes abaixo:</p>
-<p>
-  <strong>Cliente:</strong> {{user}} <br/>
-  <strong>Data/hora:</strong> {{date}} <br/>
+<style>
+  .content {
+    background: rgba(159, 148, 190, 0.29);
+    padding: 20px;
+  }
+
+  .cliente {
+    padding: 8px 0px 8px;
+    border-top: 1px solid rgba(159, 148, 190, 0.47); ;
+    border-bottom: 1px solid rgba(159, 148, 190, 0.47); ;
+    display: flex;
+    align-items: center;
+  }
+
+  .avatar {
+    border: 1px black solid;
+    box-shadow: 0px 2px 5px black;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    margin-right: 6px;
+  }
+</style>
+
+<div class="content">
+  <strong style="color: #40356e;">Olá, {{provider}}!</strong>
+  <p>Houve um cancelamento de horário, confira os detalhes abaixo:</p>
+  <div class="cliente">
+    <img class="avatar" src={{avatar}}>
+    <div>
+      Cliente: <strong>{{user}}</strong> <br/>
+      Data/hora: <strong>{{date}}</strong> <br/>
+    </div>
+  </div>
   <br/>
   <small>
-    O horário está novamente disponível para novos agendamentos.
+    O horário está novamente disponível para novos agendamentos!
   </small>
-</p>
+</div>
