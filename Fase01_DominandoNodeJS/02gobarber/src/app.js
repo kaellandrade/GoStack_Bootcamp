@@ -33,6 +33,9 @@ class App {
             '/files',
             express.static(path.resolve(__dirname, '..', 'tmp', 'uploads')),
         );
+        this.server.use('/assets',
+          express.static(path.resolve(__dirname, '..', 'src', 'app','views', 'assets'))
+        );
     }
 
     routes() {
