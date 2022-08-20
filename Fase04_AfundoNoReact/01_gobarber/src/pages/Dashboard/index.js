@@ -23,7 +23,7 @@ const DashBoard = () => {
     const [schedule, setSchedule] = useState([]);
     const [date, setDate] = useState(new Date());
 
-    const dateFormatted = useMemo(() => format(date, "d 'de' MMMM", {locale: ptBR}), [date]);
+    const dateFormatted = useMemo(() => format(date, "EEEEEE, d 'de' MMMM", {locale: ptBR}), [date]);
 
     useEffect(() => {
         async function loadSchedule() {
