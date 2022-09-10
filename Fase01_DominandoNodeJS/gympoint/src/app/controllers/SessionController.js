@@ -35,7 +35,7 @@ class SessionControler {
     const { id, name, admin } = UserExist;
     return res.json({
       user: { id, name, email, admin },
-      token: jwt.sign({ id, admin }, process.env.JWT_SECRET, {
+      token: jwt.sign({ id, admin }, auth.secret, {
         expiresIn: auth.expire,
       }),
     });
