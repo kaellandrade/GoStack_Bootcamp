@@ -1,26 +1,26 @@
 version: "3"
 
 services:
-  postgobarber:
-    container_name: pg_gobarber
+  postgympoint:
+    container_name: pg_gympoint
     image: postgres:14.2
     environment:
-      POSTGRES_PASSWORD: gobarber123
+      POSTGRES_PASSWORD: gympoint123
       POSTGRES_USER: root
-      POSTGRES_DB: gobarber
+      POSTGRES_DB: gympoint
     ports:
       - "5432:5432"
     volumes:
       - ./db:/var/lib/postgresql/data
 
   mongoDB:
-    container_name: mongobarber
+    container_name: mongympoint
     image: mongo
     ports:
       - "27017:27017"
 
-  redisGobarber:
-    container_name: redisbarber
+  redis:
+    container_name: redisgympoint
     image: redis:alpine
     ports:
       - "6379:6379"

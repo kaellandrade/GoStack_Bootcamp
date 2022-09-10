@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { promisify } from 'util';
+import auth from '../../config/auth';
 /**
  * Meddlewares de autenticação.
  */
@@ -11,7 +12,7 @@ const userAuthorization = async (req, res, next) => {
   }
 
   try {
-    const { id } = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+    const { id } = await promisify(jwt.verify)(token, auth.secret);
     req.userId = id; // Passando para meu próximo meddleaware de update o ID
     next();
   } catch (error) {

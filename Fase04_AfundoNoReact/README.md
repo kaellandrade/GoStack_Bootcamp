@@ -1,5 +1,5 @@
 <h2 align="center" >
-  <img alt="GoStack" src="https://blog.hariken.co/wp-content/uploads/2019/03/react-logo.png" width="200px" /> <br/>
+  <img alt="GoStack" src="https://cdn.worldvectorlogo.com/logos/react-native-1.svg" width="200px" /> <br/>
   Fase 04 - A fundo no React e React Native!
 </h2>
 
