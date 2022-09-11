@@ -9,7 +9,7 @@ import Mail from '../../lib/Mail';
 class InscriptionController {
   async index(_, res) {
     const inscriptions = await Inscription.findAll({
-      attributes: ['start_date', 'end_date', 'price', 'id'],
+      attributes: ['id','start_date', 'end_date', 'price', 'active'],
       include: [
         {
           model: Plan,
